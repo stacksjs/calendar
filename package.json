@@ -1,0 +1,92 @@
+{
+  "name": "@stacksjs/stacks",
+  "type": "module",
+  "version": "0.33.28",
+  "packageManager": "pnpm@7.13.0",
+  "description": "Develop modern framework-agnostic web apps & libraries, faster.",
+  "author": "Chris Breuer",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/chrisbbreuer",
+  "homepage": "https://github.com/stacksjs/stacks#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stacksjs/stacks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stacksjs/stacks/issues"
+  },
+  "keywords": [
+    "monorepo",
+    "vite",
+    "component",
+    "composables",
+    "functions",
+    "ssr",
+    "pwa",
+    "library",
+    "vue",
+    "web components",
+    "typescript",
+    "javascript",
+    "starter kit"
+  ],
+  "sideEffects": false,
+  "contributors": [
+    "Chris Breuer <chris@ow3.org>"
+  ],
+  "engines": {
+    "node": ">=v18.10.0",
+    "pnpm": ">=7.13.0"
+  },
+  "scripts": {
+    "artisan": "jiti .stacks/artisan/src/index.ts",
+    "fresh": "pnpm artisan fresh",
+    "update": "pnpm artisan update",
+    "dev:components": "pnpm artisan dev:components",
+    "dev:docs": "pnpm artisan dev:docs",
+    "build": "pnpm artisan build",
+    "build:components": "pnpm artisan build:components",
+    "build:web-components": "pnpm artisan build:web-components",
+    "build:functions": "pnpm artisan build:functions",
+    "build:docs": "pnpm artisan build:docs",
+    "lint": "pnpm artisan lint",
+    "lint:fix": "pnpm artisan lint:fix",
+    "make:component": "pnpm artisan make:component",
+    "make:function": "pnpm artisan make:function",
+    "make:lang": "pnpm artisan make:lang",
+    "make:stack": "pnpm artisan make:stack",
+    "example": "pnpm artisan example",
+    "example:vue": "pnpm artisan example:vue",
+    "example:web-components": "pnpm artisan example:web-components",
+    "commit": "pnpm artisan commit",
+    "release": "pnpm artisan release",
+    "build:stacks": "pnpm artisan build:stacks",
+    "dev:pages": "pnpm artisan dev:pages",
+    "server:functions": "pnpm artisan server:functions",
+    "server:pages": "pnpm artisan server:pages",
+    "changelog": "pnpm artisan changelog",
+    "deploy:functions": "pnpm artisan deploy:functions",
+    "deploy:docs": "pnpm artisan deploy:docs",
+    "test": "pnpm artisan test",
+    "test:coverage": "pnpm artisan test:coverage",
+    "test:types": "pnpm artisan test:types",
+    "types:fix": "pnpm artisan types:fix",
+    "generate:types": "pnpm artisan generate:types",
+    "generate:entries": "pnpm artisan generate:entries",
+    "generate:vue-compat": "pnpm artisan generate:vue-compat",
+    "key:generate": "pnpm artisan key:generate",
+    "a": "pnpm artisan",
+    "art": "pnpm artisan"
+  },
+  "dependencies": {
+    "@stacksjs/framework": "workspace:*"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}

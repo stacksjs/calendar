@@ -1,0 +1,24 @@
+name: 🐛 Bug Report
+description: Report a general library issue.
+labels: [bug]
+body:
+  - type: input
+    attributes:
+      label: Stacks version
+      description: Please provide the full version of Stacks that you're experiencing the issue with.
+      placeholder: v1.2.3
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Browser & OS
+      description: Which browser and OS are you experiencing the issue with?
+      placeholder: 'Chrome 92 & macOS Monterey 12.5.1'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please describe what is happening and what you expect to happen. Ideally provide a Stackblitz recreation.
+    validations:
+      required: true

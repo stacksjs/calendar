@@ -1,0 +1,8 @@
+packages:
+  - ./.stacks/artisan
+  - ./.stacks/vue-components
+  - ./.stacks/web-components
+  - ./.stacks/functions
+  - ./.stacks
+  - './apps/**'
+  - ./
