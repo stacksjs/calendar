@@ -1,7 +1,7 @@
 {
   "name": "artisan-init",
   "type": "module",
-  "version": "0.33.28",
+  "version": "0.34.0",
   "packageManager": "pnpm@7.13.1",
   "description": "Artisan core.",
   "author": "Chris Breuer",
@@ -44,7 +44,7 @@
   },
   "scripts": {
     "artisan": "pnpm run dev && node cli.mjs",
-    "artisan-init": "pnpm run dev && node cli.mjs",
+    "artisan-init": "pnpm run build && node cli.mjs",
     "build": "unbuild",
     "dev": "unbuild --stub",
     "prepublishOnly": "pnpm run build",

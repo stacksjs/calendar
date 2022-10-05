@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 import cac from 'cac'
-import { isInitialized } from '../../core'
 import { version } from '../../../package.json'
-import { buildCommands, devCommands, exampleCommands, generateCommands, initCommands, makeCommands, testCommands, updateCommands, utilityCommands } from './cli'
+import { isInitialized } from './helpers'
+import { buildCommands, devCommands, exampleCommands, generateCommands, initCommands, keyCommands, makeCommands, testCommands, updateCommands, utilityCommands } from './cli'
 import { ExitCode } from './cli/exit-code'
-import { generate as generateAppKey } from './scripts/key'
 
 const artisan = cac('artisan')
 
@@ -13,13 +12,8 @@ process.on('uncaughtException', errorHandler)
 process.on('unhandledRejection', errorHandler)
 
 async function main() {
-  // before running any commands, check if the key:generate
-  // command is run and if the project is already initialized
-  artisan
-    .command('key:generate', 'Generates & sets the application key.')
-    .action(async () => {
-      await generateAppKey(process.cwd())
-    })
+  // before running any commands, check if the project is already initialized
+  await keyCommands(artisan)
 
   if (!await isInitialized(process.cwd())) {
     await initCommands(artisan)

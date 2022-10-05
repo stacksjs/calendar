@@ -1,4 +1,4 @@
-import { base64, md5 } from 'stacks/core/security/hash'
+import { base64, md5 } from '../.stacks/core/security'
 
 const dateFormat = 'Ymd'
 const timeFormat = 'e:Ymd\THis'
@@ -58,6 +58,4 @@ async function generateEventUid(link: any): Promise<string> {
   return await md5(`${link.from}${link.to}${link.title}${link.address}`)
 }
 
-export {
-  exportCalendarApple,
-}
+export { exportCalendarApple }

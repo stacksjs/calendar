@@ -1,7 +1,7 @@
 {
   "name": "@stacksjs/framework",
   "type": "module",
-  "version": "0.33.28",
+  "version": "0.34.0",
   "packageManager": "pnpm@7.13.1",
   "description": "The Stacks framework core.",
   "author": "Chris Breuer",
@@ -33,12 +33,14 @@
     "Chris Breuer <chris@ow3.org>"
   ],
   "files": [
-    "components",
+    "artisan",
+    "core",
     "dist",
-    "elements",
     "examples",
     "functions",
-    "src",
+    "scripts",
+    "vue-components",
+    "web-components",
     ".gitignore",
     "custom-elements.json",
     "nitro.config.ts",
@@ -82,7 +84,7 @@
     "server:pages": "nitro build",
     "lint": "eslint ..",
     "lint:fix": "eslint .. --fix",
-    "commit": "cd .. && git cz",
+    "commit": "git cz",
     "release": "jiti ./core/actions/generate-package-json.ts && bumpp ./package.json ./**/package.json ../package.json --execute 'pnpm run changelog' --all",
     "changelog": "cd .. && conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "size": "esno core/actions/size.ts",
@@ -147,7 +149,7 @@
     "unbuild": "^0.8.11",
     "unocss": "^0.45.26",
     "unplugin-auto-import": "^0.11.2",
-    "unplugin-vue-components": "^0.22.7",
+    "unplugin-vue-components": "^0.22.8",
     "vite": "^3.1.4",
     "vite-plugin-inspect": "^0.7.5",
     "vitepress": "1.0.0-alpha.19",
@@ -163,6 +165,11 @@
         "react-dom",
         "@types/react"
       ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
     }
   }
 }

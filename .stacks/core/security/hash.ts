@@ -1,13 +1,9 @@
 import { createHash } from 'node:crypto'
 import bcryptAlgo from 'bcrypt'
-import { bcrypt as bcryptOptions } from '../../../config/hashing'
+import { bcryptOptions } from '../../../config/hashing'
 
 async function md5(password: string) {
   return await createHash('md5').update(password).digest('hex')
-}
-
-async function base64(password: string) {
-  return await createHash('base64').update(password).digest()
 }
 
 async function bcrypt(password: string) {
@@ -23,4 +19,4 @@ async function make(password: string, type: 'bcrypt' | 'md5' = 'bcrypt') {
   return await md5(password)
 }
 
-export { make, bcrypt, md5, base64 }
+export { make as makeHash, bcrypt, md5 }
