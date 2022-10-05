@@ -61,7 +61,7 @@ importers:
       unbuild: ^0.8.11
       unocss: ^0.45.26
       unplugin-auto-import: ^0.11.2
-      unplugin-vue-components: ^0.22.7
+      unplugin-vue-components: ^0.22.8
       vite: ^3.1.4
       vite-plugin-inspect: ^0.7.5
       vitepress: 1.0.0-alpha.19
@@ -120,7 +120,7 @@ importers:
       unbuild: 0.8.11
       unocss: 0.45.26_vite@3.1.4
       unplugin-auto-import: 0.11.2_@vueuse+core@9.3.0
-      unplugin-vue-components: 0.22.7_vue@3.2.40
+      unplugin-vue-components: 0.22.8_vue@3.2.40
       vite: 3.1.4
       vite-plugin-inspect: 0.7.5_vite@3.1.4
       vitepress: 1.0.0-alpha.19_tbpndr44ulefs3hehwpi2mkf2y
@@ -7015,8 +7015,8 @@ packages:
       unplugin: 0.9.6
     dev: false
 
-  /unplugin-vue-components/0.22.7_vue@3.2.40:
-    resolution: {integrity: sha512-MJEAKJF9bRykTRvJ4WXF0FNMAyt1PX3iwpu2NN+li35sAKjQv6sC1col5aZDLiwDZDo2AGwxNkzLJFKaun9qHw==}
+  /unplugin-vue-components/0.22.8_vue@3.2.40:
+    resolution: {integrity: sha512-Musnwdtr6uj9Zopo4oeh4lp9+fJ2ArXVDzSiZxF4YC9v+pLnasKVKEEAjdXuQQ3u3KtntVw6PCscyAt52eS75g==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/parser': ^7.15.8
