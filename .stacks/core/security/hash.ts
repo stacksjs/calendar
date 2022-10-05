@@ -1,22 +1,27 @@
-import { createHash } from 'node:crypto'
-import bcryptAlgo from 'bcrypt'
-import { bcryptOptions } from '../../../config/hashing'
+// import { createHash } from 'crypto'
+// import bcryptAlgo from 'bcrypt'
+// import { bcryptOptions } from '../../../config/hashing'
 
-async function md5(password: string) {
-  return await createHash('md5').update(password).digest('hex')
-}
+// async function base64(password: string) {
+// return await createHash('base64').update(password).digest()
+// }
 
-async function bcrypt(password: string) {
-  const salt = await bcryptAlgo.genSalt(bcryptOptions.rounds)
+// async function md5(password: string) {
+// return await createHash('md5').update(password).digest('hex')
+// }
 
-  return await bcryptAlgo.hash(password, salt)
-}
+// async function bcrypt(password: string) {
+//   const salt = await bcryptAlgo.genSalt(bcryptOptions.rounds)
 
-async function make(password: string, type: 'bcrypt' | 'md5' = 'bcrypt') {
-  if (type === 'bcrypt')
-    return await bcrypt(password)
+//   return await bcryptAlgo.hash(password, salt)
+// }
 
-  return await md5(password)
-}
+// async function make(password: string, type: 'bcrypt' | 'md5' = 'bcrypt') {
+//   if (type === 'bcrypt')
+//     return await bcrypt(password)
 
-export { make as makeHash, bcrypt, md5 }
+//   return await md5(password)
+// }
+
+// export { base64, md5 }
+export { }

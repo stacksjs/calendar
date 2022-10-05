@@ -9,7 +9,6 @@ declare global {
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const author: typeof import('../config/library')['author']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
-  const bcrypt: typeof import('./core/security/hash')['bcrypt']
   const bcryptOptions: typeof import('../config/hashing')['bcryptOptions']
   const beforeAll: typeof import('vitest')['beforeAll']
   const beforeEach: typeof import('vitest')['beforeEach']
@@ -61,6 +60,7 @@ declare global {
   const encryptString: typeof import('./core/security/crypt')['encryptString']
   const env: typeof import('../config/app')['env']
   const expect: typeof import('vitest')['expect']
+  const exportCalendarApple: typeof import('../functions/calendar-links')['exportCalendarApple']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const fallbackLocale: typeof import('../config/app')['fallbackLocale']
   const functions: typeof import('../config/library')['functions']
@@ -98,9 +98,7 @@ declare global {
   const license: typeof import('../config/library')['license']
   const locale: typeof import('../config/app')['locale']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
-  const makeHash: typeof import('./core/security/hash')['makeHash']
   const markRaw: typeof import('vue')['markRaw']
-  const md5: typeof import('./core/security/hash')['md5']
   const name: typeof import('../config/app')['name']
   const nextTick: typeof import('vue')['nextTick']
   const noCase: typeof import('./core/utils/string')['noCase']
@@ -359,7 +357,6 @@ declare module '@vue/runtime-core' {
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly author: UnwrapRef<typeof import('../config/library')['author']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
-    readonly bcrypt: UnwrapRef<typeof import('./core/security/hash')['bcrypt']>
     readonly bcryptOptions: UnwrapRef<typeof import('../config/hashing')['bcryptOptions']>
     readonly beforeAll: UnwrapRef<typeof import('vitest')['beforeAll']>
     readonly beforeEach: UnwrapRef<typeof import('vitest')['beforeEach']>
@@ -411,6 +408,7 @@ declare module '@vue/runtime-core' {
     readonly encryptString: UnwrapRef<typeof import('./core/security/crypt')['encryptString']>
     readonly env: UnwrapRef<typeof import('../config/app')['env']>
     readonly expect: UnwrapRef<typeof import('vitest')['expect']>
+    readonly exportCalendarApple: UnwrapRef<typeof import('../functions/calendar-links')['exportCalendarApple']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly fallbackLocale: UnwrapRef<typeof import('../config/app')['fallbackLocale']>
     readonly functions: UnwrapRef<typeof import('../config/library')['functions']>
@@ -448,9 +446,7 @@ declare module '@vue/runtime-core' {
     readonly license: UnwrapRef<typeof import('../config/library')['license']>
     readonly locale: UnwrapRef<typeof import('../config/app')['locale']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
-    readonly makeHash: UnwrapRef<typeof import('./core/security/hash')['makeHash']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
-    readonly md5: UnwrapRef<typeof import('./core/security/hash')['md5']>
     readonly name: UnwrapRef<typeof import('../config/app')['name']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly noCase: UnwrapRef<typeof import('./core/utils/string')['noCase']>

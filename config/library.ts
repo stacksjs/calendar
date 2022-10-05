@@ -8,10 +8,10 @@
 
 import type { Author, Contributors, Hosts, LanguageCode, LibraryName, LibraryOptions, LicenseType, OrganizationName, Repository, StackName } from 'stacks'
 
-const libraryName: LibraryName = 'hello-world'
+const libraryName: LibraryName = 'calendar'
 const organizationName: OrganizationName = '@stacksjs'
 const stackName: StackName = organizationName ? `${organizationName}/${libraryName}` : libraryName
-const repository: Repository = 'stacksjs/stacks'
+const repository: Repository = 'stacksjs/calendar'
 const host: Hosts = 'netlify'
 
 const license: LicenseType = 'MIT'
@@ -38,7 +38,7 @@ const webComponentsLibrary: LibraryOptions = {
  */
 const components = [
   ['HelloWorld', 'HalloWelt'], // export { default as HalloWelt } from '../components/HelloWorld.vue'
-  'Demo', // // export { default as Demo } from '../components/Demo.vue'
+  'Demo', // export { default as Demo } from '../components/Demo.vue'
 ]
 
 const functionsLibrary: LibraryOptions = {
