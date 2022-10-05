@@ -56,6 +56,7 @@ const functionsLibrary: LibraryOptions = {
  */
 const functions = [
   'counter',
+  'calendar-links',
   'dark',
 ]
 

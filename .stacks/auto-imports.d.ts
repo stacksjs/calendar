@@ -50,6 +50,7 @@ declare global {
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const expect: typeof import('vitest')['expect']
+  const exportCalendarApple: typeof import('../functions/calendar-links')['exportCalendarApple']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const functions: typeof import('../config/library')['functions']
   const functionsLibrary: typeof import('../config/library')['functionsLibrary']
@@ -374,6 +375,7 @@ declare module '@vue/runtime-core' {
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly expect: UnwrapRef<typeof import('vitest')['expect']>
+    readonly exportCalendarApple: UnwrapRef<typeof import('../functions/calendar-links')['exportCalendarApple']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly functions: UnwrapRef<typeof import('../config/library')['functions']>
     readonly functionsLibrary: UnwrapRef<typeof import('../config/library')['functionsLibrary']>

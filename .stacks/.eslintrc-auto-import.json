@@ -49,6 +49,7 @@
     "eagerComputed": true,
     "effectScope": true,
     "expect": true,
+    "exportCalendarApple": true,
     "extendRef": true,
     "functions": true,
     "functionsLibrary": true,

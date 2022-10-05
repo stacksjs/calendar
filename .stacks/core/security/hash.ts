@@ -6,6 +6,10 @@ async function md5(password: string) {
   return await createHash('md5').update(password).digest('hex')
 }
 
+async function base64(password: string) {
+  return await createHash('base64').update(password).digest()
+}
+
 async function bcrypt(password: string) {
   const salt = await bcryptAlgo.genSalt(bcryptOptions.rounds)
 
@@ -19,4 +23,4 @@ async function make(password: string, type: 'bcrypt' | 'md5' = 'bcrypt') {
   return await md5(password)
 }
 
-export default { make, bcrypt, md5 }
+export { make, bcrypt, md5, base64 }
