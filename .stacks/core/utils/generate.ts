@@ -5,7 +5,7 @@ import fs from 'fs-extra'
 import { packageManager } from '../../package.json'
 import { author, components, componentsLibrary, contributors, functions, functionsLibrary, repository, webComponentsLibrary } from '../../../config/library'
 import { reset } from '../../../config/ui'
-import { kebabCase, writeTextFile } from '../utils'
+import { paramCase, writeTextFile } from '../utils'
 
 /**
  * Based on the config values, this method
@@ -175,12 +175,12 @@ function generateEntryPointData(type: 'vue-components' | 'web-components' | 'fun
     if (Array.isArray(component)) {
       imports.push(`import ${component[1]} from '../../../../components/${component[0]}.vue'`)
       declarations.push(`const ${component[1]}CustomElement = defineCustomElement(${component[1]})`)
-      definitions.push(`customElements.define('${kebabCase(component[1])}', ${component[1]}CustomElement)`)
+      definitions.push(`customElements.define('${paramCase(component[1])}', ${component[1]}CustomElement)`)
     }
     else {
       imports.push(`import ${component} from '../../../../components/${component}.vue'`)
       declarations.push(`const ${component}CustomElement = defineCustomElement(${component})`)
-      definitions.push(`customElements.define('${kebabCase(component)}', ${component}CustomElement)`)
+      definitions.push(`customElements.define('${paramCase(component)}', ${component}CustomElement)`)
     }
   }
 

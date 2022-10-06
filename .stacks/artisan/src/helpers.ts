@@ -1,7 +1,7 @@
 import { resolve } from 'pathe'
 import ezSpawn from '@jsdevtools/ez-spawn'
 import consola from 'consola'
-import { paramCase as kebabCase } from 'change-case'
+import { paramCase } from 'change-case'
 import { components, functions } from '../../../config/library'
 import { reset } from '../../../config/ui'
 import { isFile, readTextFile, writeTextFile } from '../../core/utils/fs'
@@ -111,12 +111,12 @@ function generateEntryPointData(type: 'vue-components' | 'web-components' | 'fun
     if (Array.isArray(component)) {
       imports.push(`import ${component[1]} from '../../../../components/${component[0]}.vue'`)
       declarations.push(`const ${component[1]}CustomElement = defineCustomElement(${component[1]})`)
-      definitions.push(`customElements.define('${kebabCase(component[1])}', ${component[1]}CustomElement)`)
+      definitions.push(`customElements.define('${paramCase(component[1])}', ${component[1]}CustomElement)`)
     }
     else {
       imports.push(`import ${component} from '../../../../components/${component}.vue'`)
       declarations.push(`const ${component}CustomElement = defineCustomElement(${component})`)
-      definitions.push(`customElements.define('${kebabCase(component)}', ${component}CustomElement)`)
+      definitions.push(`customElements.define('${paramCase(component)}', ${component}CustomElement)`)
     }
   }
 

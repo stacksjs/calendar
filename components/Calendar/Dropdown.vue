@@ -35,15 +35,10 @@ function isCalendarIncluded(type: string) {
       role="none"
     >
       <Ics v-if="isCalendarIncluded('ics') || isCalendarIncluded('apple')" />
-
       <Google v-if="isCalendarIncluded('google')" />
-
       <Outlook v-if="isCalendarIncluded('outlook')" />
-
       <Office v-if="isCalendarIncluded('office')" />
-
       <OutlookOnline v-if="isCalendarIncluded('outlook')" />
-
       <Yahoo v-if="isCalendarIncluded('yahoo')" />
     </div>
   </div>

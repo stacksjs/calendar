@@ -3,7 +3,6 @@
   All of your components & functions are automatically imported.
   It is rendered when you run `pnpm artisan dev:components`.
 -->
-
 <template>
-  <Calendar types="Ics,Google" />
+  <Calendar providers="ics, google" />
 </template>

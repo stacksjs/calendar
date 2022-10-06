@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { isString } from '@vueuse/core'
-
 interface Props {
-  types: string | string[]
+  providers: string | string[]
 }
 
-const {
-  types,
-} = defineProps<Props>()
+const { providers } = defineProps<Props>()
 
-const calendarTypes = computed((): string[] => {
-  if (isString(types))
-    return types.split(',').map(type => type.trim()).map(type => type.toLowerCase())
-  return types
+const calendarProviders = computed((): string[] => {
+  if (isString(providers))
+    return providers.split(',').map(type => type.trim()).map(type => type.toLowerCase())
+
+  return providers
 })
 </script>
 
@@ -44,7 +41,7 @@ const calendarTypes = computed((): string[] => {
         </button>
       </div>
 
-      <Dropdown :calendar-types="calendarTypes" />
+      <Dropdown :calendar-types="calendarProviders" />
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 {
   "name": "@stacksjs/calendar",
   "type": "module",
-  "version": "0.33.28",
+  "version": "0.0.0",
   "packageManager": "pnpm@7.13.2",
   "description": "Develop modern framework-agnostic web apps & libraries, faster.",
   "author": "Chris Breuer",
