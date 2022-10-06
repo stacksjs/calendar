@@ -5,10 +5,8 @@ importers:
   .:
     specifiers:
       '@stacksjs/framework': workspace:*
-      artisan-init: workspace:*
     dependencies:
       '@stacksjs/framework': link:.stacks
-      artisan-init: link:.stacks/artisan
 
   .stacks:
     specifiers:
@@ -19,7 +17,6 @@ importers:
       '@julr/unocss-preset-forms': ^0.0.2
       '@ow3/eslint-config': ^0.30.0
       '@rollup/pluginutils': ^4.2.1
-      '@types/bcrypt': ^5.0.0
       '@types/crypto-js': ^4.1.1
       '@types/fs-extra': ^9.0.13
       '@types/minimatch': ^5.1.2
@@ -32,7 +29,7 @@ importers:
       '@vitest/coverage-istanbul': ^0.23.4
       '@vueuse/core': ^9.3.0
       artisan-init: workspace:*
-      bcrypt: ^5.0.1
+      bcryptjs: ^2.4.3
       bumpp: ^8.2.1
       cac: ^6.7.14
       change-case: ^4.1.2
@@ -78,7 +75,6 @@ importers:
       '@julr/unocss-preset-forms': 0.0.2_unocss@0.45.26
       '@ow3/eslint-config': 0.30.0_ypn2ylkkyfa5i233caldtndbqa
       '@rollup/pluginutils': 4.2.1
-      '@types/bcrypt': 5.0.0
       '@types/crypto-js': 4.1.1
       '@types/fs-extra': 9.0.13
       '@types/minimatch': 5.1.2
@@ -91,7 +87,7 @@ importers:
       '@vitest/coverage-istanbul': 0.23.4
       '@vueuse/core': 9.3.0_vue@3.2.40
       artisan-init: link:artisan
-      bcrypt: 5.0.1
+      bcryptjs: 2.4.3
       bumpp: 8.2.1
       cac: 6.7.14
       change-case: 4.1.2
@@ -125,7 +121,7 @@ importers:
       unplugin-vue-components: 0.22.8_vue@3.2.40
       vite: 3.1.4
       vite-plugin-inspect: 0.7.5_vite@3.1.4
-      vitepress: 1.0.0-alpha.19
+      vitepress: 1.0.0-alpha.19_tbpndr44ulefs3hehwpi2mkf2y
       vitest: 0.23.4
       vue: 3.2.40
       vue-tsc: 0.40.13_typescript@4.8.4
@@ -173,16 +169,14 @@ packages:
       '@algolia/autocomplete-shared': 1.7.1
     dev: false
 
-  /@algolia/autocomplete-preset-algolia/1.7.1_algoliasearch@4.14.2:
+  /@algolia/autocomplete-preset-algolia/1.7.1_qs6lk5nhygj2o3hj4sf6xnr724:
     resolution: {integrity: sha512-pJwmIxeJCymU1M6cGujnaIYcY3QPOVYZOXhFkWVM7IxKzy272BwCvMFMyc5NpG/QmiObBxjo7myd060OeTNJXg==}
     peerDependencies:
       '@algolia/client-search': ^4.9.1
       algoliasearch: ^4.9.1
-    peerDependenciesMeta:
-      '@algolia/client-search':
-        optional: true
     dependencies:
       '@algolia/autocomplete-shared': 1.7.1
+      '@algolia/client-search': 4.14.2
       algoliasearch: 4.14.2
     dev: false
 
@@ -551,10 +545,10 @@ packages:
     resolution: {integrity: sha512-gaP6TxxwQC+K8D6TRx5WULUWKrcbzECOPA2KCVMuI+6C7dNiGUk5yXXzVhc5sld79XKYLnO9DRTI4mjXDYkh+g==}
     dev: false
 
-  /@docsearch/js/3.2.1:
+  /@docsearch/js/3.2.1_tbpndr44ulefs3hehwpi2mkf2y:
     resolution: {integrity: sha512-H1PekEtSeS0msetR2YGGey2w7jQ2wAKfGODJvQTygSwMgUZ+2DHpzUgeDyEBIXRIfaBcoQneqrzsljM62pm6Xg==}
     dependencies:
-      '@docsearch/react': 3.2.1
+      '@docsearch/react': 3.2.1_tbpndr44ulefs3hehwpi2mkf2y
       preact: 10.11.1
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -563,7 +557,7 @@ packages:
       - react-dom
     dev: false
 
-  /@docsearch/react/3.2.1:
+  /@docsearch/react/3.2.1_tbpndr44ulefs3hehwpi2mkf2y:
     resolution: {integrity: sha512-EzTQ/y82s14IQC5XVestiK/kFFMe2aagoYFuTAIfIb/e+4FU7kSMKonRtLwsCiLQHmjvNQq+HO+33giJ5YVtaQ==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -578,7 +572,7 @@ packages:
         optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.7.1
-      '@algolia/autocomplete-preset-algolia': 1.7.1_algoliasearch@4.14.2
+      '@algolia/autocomplete-preset-algolia': 1.7.1_qs6lk5nhygj2o3hj4sf6xnr724
       '@docsearch/css': 3.2.1
       algoliasearch: 4.14.2
     transitivePeerDependencies:
@@ -1041,12 +1035,6 @@ packages:
     dev: false
     optional: true
 
-  /@types/bcrypt/5.0.0:
-    resolution: {integrity: sha512-agtcFKaruL8TmcvqbndlqHPSJgsolhf/qPWchFlgnW1gECTN/nKbFcoFnvKAQRFfKbh+BO6A3SWdJu9t+xF3Lw==}
-    dependencies:
-      '@types/node': 18.8.2
-    dev: false
-
   /@types/chai-subset/1.3.3:
     resolution: {integrity: sha512-frBecisrNGz+F4T6bcc+NLeolfiojh5FxW2klu669+8BARtyQv2C/GkNW6FUodVe4BroGMP/wER/YDGc7rEllw==}
     dependencies:
@@ -1282,7 +1270,7 @@ packages:
       colorette: 2.0.19
       consola: 2.15.3
       fast-glob: 3.2.12
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       pathe: 0.3.8
       perfect-debounce: 0.1.3
     dev: false
@@ -1407,7 +1395,7 @@ packages:
       '@unocss/inspector': 0.45.26
       '@unocss/scope': 0.45.26
       '@unocss/transformer-directives': 0.45.26
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       vite: 3.1.4
     dev: false
 
@@ -1446,7 +1434,7 @@ packages:
     resolution: {integrity: sha512-vl+c682jwCkthdOomO7aBRY/H2bXfxjYAo+WZoGktdWEiSBfwhFUOcJJW3+Ery9i8ja+M1Jd19HrqYriLixGPw==}
     dependencies:
       istanbul-lib-coverage: 3.2.0
-      istanbul-lib-instrument: 5.2.0
+      istanbul-lib-instrument: 5.2.1
       istanbul-lib-report: 3.0.0
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.5
@@ -1881,16 +1869,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /bcrypt/5.0.1:
-    resolution: {integrity: sha512-9BTgmrhZM2t1bNuDtrtIMVSmmxZBrJ71n8Wg+YgdjHuIWYF7SjjmCPZFB+/5i/o/PIeRpwVJR3P+NrpIItUjqw==}
-    engines: {node: '>= 10.0.0'}
-    requiresBuild: true
-    dependencies:
-      '@mapbox/node-pre-gyp': 1.0.10
-      node-addon-api: 3.2.1
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
+  /bcryptjs/2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
     dev: false
 
   /binary-extensions/2.2.0:
@@ -1958,7 +1938,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001416
-      electron-to-chromium: 1.4.272
+      electron-to-chromium: 1.4.274
       node-releases: 2.0.6
       update-browserslist-db: 1.0.10_browserslist@4.21.4
 
@@ -2882,8 +2862,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
 
-  /electron-to-chromium/1.4.272:
-    resolution: {integrity: sha512-KS6gPPGNrzpVv9HzFVq+Etd0AjZEPr5pvaTBn2yD6KV4+cKW4I0CJoJNgmTG6gUQPAMZ4wIPtcOuoou3qFAZCA==}
+  /electron-to-chromium/1.4.274:
+    resolution: {integrity: sha512-Fgn7JZQzq85I81FpKUNxVLAzoghy8JZJ4NIue+YfUYBbu1AkpgzFvNwzF/ZNZH9ElkmJD0TSWu1F2gTpw/zZlg==}
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4692,8 +4672,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /istanbul-lib-instrument/5.2.0:
-    resolution: {integrity: sha512-6Lthe1hqXHBNsqvgDzGO6l03XNeu3CrG4RqQ1KM9+l5+jNGpEJfIELx1NS3SEHmJQA8np/u+E4EPRKRiu6m19A==}
+  /istanbul-lib-instrument/5.2.1:
+    resolution: {integrity: sha512-pzqtp31nLv/XFOzXGuvhCb8qhjmTVo5vjVk19XE4CRlSWz0KoeJ3bw9XsA7nOp9YBf4qHjwBxkDzKcME/J29Yg==}
     engines: {node: '>=8'}
     dependencies:
       '@babel/core': 7.19.3
@@ -5074,8 +5054,8 @@ packages:
     dependencies:
       sourcemap-codec: 1.4.8
 
-  /magic-string/0.26.5:
-    resolution: {integrity: sha512-yXUIYOOQnEHKHOftp5shMWpB9ImfgfDJpapa38j/qMtTj5QHWucvxP4lUtuRmHT9vAzvtpHkWKXW9xBwimXeNg==}
+  /magic-string/0.26.6:
+    resolution: {integrity: sha512-6d+3bFybzyQFJYSoRsl9ZC0wheze8M1LrQC7tNMRqXR4izUTDOLMd9BtSuExK9iAukFh+s5K0WAhc/dlQ+HKYA==}
     engines: {node: '>=12'}
     dependencies:
       sourcemap-codec: 1.4.8
@@ -5409,10 +5389,6 @@ packages:
     dependencies:
       lower-case: 2.0.2
       tslib: 2.4.0
-    dev: false
-
-  /node-addon-api/3.2.1:
-    resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
     dev: false
 
   /node-fetch-native/0.1.7:
@@ -6109,7 +6085,7 @@ packages:
       rollup: ^2.55
       typescript: ^4.1
     dependencies:
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       rollup: 2.79.1
       typescript: 4.8.4
     optionalDependencies:
@@ -6903,7 +6879,7 @@ packages:
       globby: 13.1.2
       hookable: 5.3.0
       jiti: 1.16.0
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       mkdirp: 1.0.4
       mkdist: 0.3.13_typescript@4.8.4
       mlly: 0.5.16
@@ -6952,7 +6928,7 @@ packages:
       escape-string-regexp: 5.0.0
       fast-glob: 3.2.12
       local-pkg: 0.4.2
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       mlly: 0.5.16
       pathe: 0.3.8
       scule: 0.3.2
@@ -7014,7 +6990,7 @@ packages:
       '@rollup/pluginutils': 4.2.1
       '@vueuse/core': 9.3.0_vue@3.2.40
       local-pkg: 0.4.2
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       unimport: 0.6.8
       unplugin: 0.9.6
     dev: false
@@ -7035,7 +7011,7 @@ packages:
       debug: 4.3.4
       fast-glob: 3.2.12
       local-pkg: 0.4.2
-      magic-string: 0.26.5
+      magic-string: 0.26.6
       minimatch: 5.1.0
       resolve: 1.22.1
       unplugin: 0.9.6
@@ -7176,12 +7152,12 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress/1.0.0-alpha.19:
+  /vitepress/1.0.0-alpha.19_tbpndr44ulefs3hehwpi2mkf2y:
     resolution: {integrity: sha512-0FIUZB6JGXio7SELDDUkyQoMjmO/UAXqDXmznzOsBKsdZ3EHlyb6NaP/V/BMfN5S8+GV88ScbIL0jd/pDzkLBg==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.1
-      '@docsearch/js': 3.2.1
+      '@docsearch/js': 3.2.1_tbpndr44ulefs3hehwpi2mkf2y
       '@vitejs/plugin-vue': 3.1.2_vite@3.1.4+vue@3.2.40
       '@vue/devtools-api': 6.4.3
       '@vueuse/core': 9.3.0_vue@3.2.40

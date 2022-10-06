@@ -1,5 +1,5 @@
 {
-  "name": "@stacksjs/stacks",
+  "name": "@stacksjs/calendar",
   "type": "module",
   "version": "0.33.28",
   "packageManager": "pnpm@7.13.1",
@@ -7,13 +7,13 @@
   "author": "Chris Breuer",
   "license": "MIT",
   "funding": "https://github.com/sponsors/chrisbbreuer",
-  "homepage": "https://github.com/stacksjs/stacks#readme",
+  "homepage": "https://github.com/stacksjs/calendar#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stacksjs/stacks.git"
+    "url": "git+https://github.com/stacksjs/calendar.git"
   },
   "bugs": {
-    "url": "https://github.com/stacksjs/stacks/issues"
+    "url": "https://github.com/stacksjs/calendar/issues"
   },
   "keywords": [
     "monorepo",
@@ -86,7 +86,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-git"
+      "path": ".stacks/node_modules/cz-git"
     }
   }
 }

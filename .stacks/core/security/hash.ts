@@ -1,6 +1,6 @@
 // import { createHash } from 'crypto'
-// import bcryptAlgo from 'bcrypt'
-// import { bcryptOptions } from '../../../config/hashing'
+import bcryptAlgo from 'bcrypt'
+import { bcryptOptions } from '../../../config/hashing'
 
 // async function base64(password: string) {
 // return await createHash('base64').update(password).digest()
