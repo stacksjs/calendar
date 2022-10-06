@@ -37,7 +37,7 @@ const webComponentsLibrary: LibraryOptions = {
  * would require `../components/HelloWorld.vue` to be present.
  */
 const components = [
-  ['HelloWorld', 'HalloWelt'], // export { default as HalloWelt } from '../components/HelloWorld.vue'
+  ['Calendar', 'HalloWelt'], // export { default as HalloWelt } from '../components/HelloWorld.vue'
   'Demo', // export { default as Demo } from '../components/Demo.vue'
 ]
 

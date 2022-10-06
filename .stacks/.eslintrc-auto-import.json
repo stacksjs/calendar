@@ -60,6 +60,7 @@
     "env": true,
     "expect": true,
     "exportCalendarApple": true,
+    "exportCalendarGoogle": true,
     "extendRef": true,
     "fallbackLocale": true,
     "functions": true,

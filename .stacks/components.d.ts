@@ -7,10 +7,20 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    App: typeof import('./../components/App.vue')['default']
+    Calendar: typeof import('./../components/Calendar/Calendar.vue')['default']
     Counter: typeof import('./../components/Buttons/Counter.vue')['default']
     Demo: typeof import('./../components/Demo.vue')['default']
+    Dropdown: typeof import('./../components/Calendar/Dropdown.vue')['default']
+    Google: typeof import('./../components/Calendar/Types/Google.vue')['default']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
+    Ics: typeof import('./../components/Calendar/Types/Ics.vue')['default']
+    Index: typeof import('./../components/Calendar/Index.vue')['default']
     Logo: typeof import('./../components/Logo.vue')['default']
+    Office: typeof import('./../components/Calendar/Types/Office.vue')['default']
+    Outlook: typeof import('./../components/Calendar/Types/Outlook.vue')['default']
+    OutlookOnline: typeof import('./../components/Calendar/Types/OutlookOnline.vue')['default']
     ToggleDark: typeof import('./../components/Buttons/ToggleDark.vue')['default']
+    Yahoo: typeof import('./../components/Calendar/Types/Yahoo.vue')['default']
   }
 }
