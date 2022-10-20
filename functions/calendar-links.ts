@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const dateFormat = 'Ymd'
-const timeFormat = 'e:Ymd\THis'
+const dateFormat = 'YYYYMMDD'
+const timeFormat = 'YYYYMMDDThhmmss'
 
 // functions that mutate state and trigger updates
 function exportCalendarApple(link: any) {
@@ -8,7 +8,15 @@ function exportCalendarApple(link: any) {
 }
 
 // functions that mutate state and trigger updates
-function exportCalendarGoogle(link: any) {
+function exportCalendarGoogle() {
+  const link = {
+    from: new Date('2022-12-12 01:05:05'),
+    to: new Date('2022-12-12 05:05:05'),
+    allDay: false,
+    title: 'test appointment',
+    description: 'test description',
+  }
+
   return generateGoogle(link)
 }
 
@@ -55,32 +63,38 @@ function generateIcs(link: any) {
 }
 
 function generateGoogle(link: any) {
-  const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+  // 20221020T170000Z/20221020T173000Z
 
-  const utcStartDateTime = link.from // set timezone to UTC
-  const utcEndDateTime = link.to // set timezone to UTC
+  let url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+
+  const utcStartDateTime = convertTZ(link.from, 'UTC') // set timezone to UTC
+  const utcEndDateTime = convertTZ(link.to, 'UTC') // set timezone to UTC
   const dateTimeFormat = link.allDay ? dateFormat : timeFormat
 
-  // const url .= '&dates='.utcStartDateTime->format($dateTimeFormat).'/'.$utcEndDateTime->format($dateTimeFormat);
-  url.concat(`&dates=${utcStartDateTime}/${utcEndDateTime}`)
+  url = `${url}&dates=${useDateFormat(utcStartDateTime, dateTimeFormat).value}/${useDateFormat(utcEndDateTime, dateTimeFormat).value}`
 
   // Add timezone name if it is specified in both from and to dates and is the same for both
-  // link->from->getTimezone() && $link->to->getTimezone()
-  // $link->from->getTimezone()->getName() === $link->to->getTimezone()->getName()
-  if (link.from && link.to && link.from === link.to) {
-    // $link->from->getTimezone()->getName()
-    url.concat(`&ctz=${link.from}`)
-  }
+  //    if (
+  //     $link->from->getTimezone() && $link->to->getTimezone()
+  //     && $link->from->getTimezone()->getName() === $link->to->getTimezone()->getName()
+  // ) {
+  url = `${url}&ctz=EST`
+  // }
 
-  url.concat(`&text=${urlencode(link.title)}`)
+  url = `${url}&text=${encodeURIComponent(link.title)}`
 
   if (link.description)
-    url.concat(`&details=${urlencode(link.description)}`)
+    url = `${url}&details=${encodeURIComponent(link.description)}`
 
   if (link.address)
-    url.concat(`&location=${urlencode(link.address)}`)
+    url = `${url}&location=${encodeURIComponent(link.address)}`
 
+  console.log(url)
   return url
+}
+
+function convertTZ(date: string, tzString: string): Date {
+  return new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', { timeZone: tzString }))
 }
 
 function buildLink(propertiesAndComponents: any) {

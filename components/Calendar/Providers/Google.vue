@@ -6,7 +6,7 @@
       class="text-gray-700 no-underline font-sans hover:bg-gray-100 group flex items-center px-4 py-2 text-sm"
       role="menuitem"
       tabindex="-1"
-      @click="demo"
+      @click="exportCalendarGoogle"
     >
       <svg
         viewBox="0 0 256 262"
