@@ -1,13 +1,16 @@
+<script setup lang="ts">
+const url = computed(() => exportCalendarApple())
+</script>
+
 <template>
   <div>
     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
     <a
       id="menu-item-0"
-      href="#"
+      :href="url"
       class="text-gray-700 no-underline font-sans hover:bg-gray-100 group flex items-center px-4 py-2 text-sm"
       role="menuitem"
       tabindex="-1"
-      @click="exportCalendarApple"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
