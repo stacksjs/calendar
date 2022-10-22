@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const url = computed(() => exportCalendarApple())
+const url = computed(() => exportCalendarIcs())
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 import generateGoogle from './generators/google'
 import generateIcs from './generators/ics'
+import generateOutlook from './generators/weboutlook'
 
 const link = {
   from: new Date('2022-12-12 01:00:00'),
@@ -15,8 +16,13 @@ function exportCalendarGoogle() {
 }
 
 // functions that mutate state and trigger updates
-function exportCalendarApple() {
+function exportCalendarIcs() {
   return generateIcs(link)
 }
 
-export { exportCalendarApple, exportCalendarGoogle }
+// functions that mutate state and trigger updates
+function exportOutlook() {
+  return generateOutlook(link)
+}
+
+export { exportCalendarIcs, exportCalendarGoogle, exportOutlook }

@@ -4,5 +4,5 @@
   It is rendered when you run `pnpm artisan dev:components`.
 -->
 <template>
-  <Calendar providers="ics, google" />
+  <Calendar providers="ics, google, outlook, office" />
 </template>
