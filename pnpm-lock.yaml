@@ -16,7 +16,7 @@ importers:
       '@jsdevtools/ez-spawn': ^3.0.4
       '@julr/unocss-preset-forms': ^0.0.2
       '@ow3/eslint-config': ^0.30.0
-      '@rollup/pluginutils': ^4.2.1
+      '@rollup/pluginutils': ^5.0.2
       '@types/bcryptjs': ^2.4.2
       '@types/crypto-js': ^4.1.1
       '@types/fs-extra': ^9.0.13
@@ -78,7 +78,7 @@ importers:
       '@jsdevtools/ez-spawn': 3.0.4
       '@julr/unocss-preset-forms': 0.0.2_unocss@0.45.26
       '@ow3/eslint-config': 0.30.0_ypn2ylkkyfa5i233caldtndbqa
-      '@rollup/pluginutils': 4.2.1
+      '@rollup/pluginutils': 5.0.2_rollup@2.79.1
       '@types/bcryptjs': 2.4.2
       '@types/crypto-js': 4.1.1
       '@types/fs-extra': 9.0.13
@@ -1022,6 +1022,21 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+
+  /@rollup/pluginutils/5.0.2_rollup@2.79.1:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.0
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+      rollup: 2.79.1
+    dev: false
 
   /@tsconfig/node10/1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
