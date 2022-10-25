@@ -1,7 +1,7 @@
 import md5 from 'crypto-js/md5'
 
 const dateFormat = 'YYYYMMDD'
-const timeFormat = 'EDT:YYYYMMDDThhmmss'
+const timeFormat = 'YYYYMMDDThhmmss'
 
 const atomicFormat = 'YYYY-MM-DDThh:mm:ss+00:00'
 
@@ -18,7 +18,11 @@ function generateIcs(link: any) {
     summary,
   ]
 
-  const dateTimeFormat = link.allDay ? dateFormat : timeFormat
+  const timezone = link.timezone || 'PST'
+
+  const formatTime = `${timezone}:${timeFormat}`
+
+  const dateTimeFormat = link.allDay ? dateFormat : formatTime
 
   if (link.allDay) {
     url.push(`DTSTAMP;TZID=${useDateFormat(link.from, dateTimeFormat).value}`)

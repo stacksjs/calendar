@@ -69,7 +69,8 @@ declare global {
   const expect: typeof import('vitest')['expect']
   const exportCalendarGoogle: typeof import('../functions/calendar-links')['exportCalendarGoogle']
   const exportCalendarIcs: typeof import('../functions/calendar-links')['exportCalendarIcs']
-  const exportOutlook: typeof import('../functions/calendar-links')['exportOutlook']
+  const exportCalendarOutlook: typeof import('../functions/calendar-links')['exportCalendarOutlook']
+  const exportCalendarYahoo: typeof import('../functions/calendar-links')['exportCalendarYahoo']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const fallbackLocale: typeof import('../config/app')['fallbackLocale']
   const functions: typeof import('../config/library')['functions']
@@ -460,7 +461,8 @@ declare module '@vue/runtime-core' {
     readonly expect: UnwrapRef<typeof import('vitest')['expect']>
     readonly exportCalendarGoogle: UnwrapRef<typeof import('../functions/calendar-links')['exportCalendarGoogle']>
     readonly exportCalendarIcs: UnwrapRef<typeof import('../functions/calendar-links')['exportCalendarIcs']>
-    readonly exportOutlook: UnwrapRef<typeof import('../functions/calendar-links')['exportOutlook']>
+    readonly exportCalendarOutlook: UnwrapRef<typeof import('../functions/calendar-links')['exportCalendarOutlook']>
+    readonly exportCalendarYahoo: UnwrapRef<typeof import('../functions/calendar-links')['exportCalendarYahoo']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly fallbackLocale: UnwrapRef<typeof import('../config/app')['fallbackLocale']>
     readonly functions: UnwrapRef<typeof import('../config/library')['functions']>

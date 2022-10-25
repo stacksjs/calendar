@@ -1,7 +1,5 @@
 <script setup lang="ts">
-const url = computed(() => exportOutlook())
-
-console.log(url.value)
+const url = computed(() => exportCalendarOutlook())
 </script>
 
 <template>

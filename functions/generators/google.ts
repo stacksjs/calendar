@@ -12,13 +12,8 @@ function generateGoogle(link: any): string {
 
   url = `${url}&dates=${useDateFormat(utcStartDateTime, dateTimeFormat).value}/${useDateFormat(utcEndDateTime, dateTimeFormat).value}`
 
-  // Add timezone name if it is specified in both from and to dates and is the same for both
-  //    if (
-  //     $link->from->getTimezone() && $link->to->getTimezone()
-  //     && $link->from->getTimezone()->getName() === $link->to->getTimezone()->getName()
-  // ) {
-  url = `${url}&ctz=EST`
-  // }
+  if (link.timezone)
+    url = `${url}&ctz=${link.timezone}`
 
   url = `${url}&text=${encodeURIComponent(link.title)}`
 

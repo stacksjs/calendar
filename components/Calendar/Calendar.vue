@@ -11,6 +11,12 @@ const calendarProviders = computed((): string[] => {
 
   return providers
 })
+
+const dropdown = ref(false)
+
+function toggleDropdown() {
+  dropdown.value = !dropdown.value
+}
 </script>
 
 <template>
@@ -23,6 +29,7 @@ const calendarProviders = computed((): string[] => {
           class="flex items-center w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
           aria-expanded="true"
           aria-haspopup="true"
+          @click="toggleDropdown"
         >
           Add to Calendar
           <!-- Heroicon name: mini/chevron-down -->
@@ -41,7 +48,10 @@ const calendarProviders = computed((): string[] => {
         </button>
       </div>
 
-      <Dropdown :calendar-types="calendarProviders" />
+      <Dropdown
+        v-show="dropdown"
+        :calendar-types="calendarProviders"
+      />
     </div>
   </div>
 </template>
