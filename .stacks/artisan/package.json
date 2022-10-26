@@ -2,7 +2,7 @@
   "name": "artisan-init",
   "type": "module",
   "version": "0.34.0",
-  "packageManager": "pnpm@7.13.2",
+  "packageManager": "pnpm@7.14.0",
   "description": "Artisan core.",
   "author": "Chris Breuer",
   "license": "MIT",
@@ -39,8 +39,8 @@
     "*.mjs"
   ],
   "engines": {
-    "node": ">=v18.10.0",
-    "pnpm": ">=7.13.2"
+    "node": ">=v18.11.0",
+    "pnpm": ">=7.14.0"
   },
   "scripts": {
     "artisan": "pnpm run dev && node cli.mjs",
@@ -55,9 +55,9 @@
     "cac": "^6.7.14",
     "giget": "^0.1.7",
     "kolorist": "^1.6.0",
-    "pathe": "^0.3.8"
+    "pathe": "^0.3.9"
   },
   "devDependencies": {
-    "unbuild": "^0.8.11"
+    "unbuild": "^0.9.4"
   }
 }

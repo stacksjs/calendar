@@ -9,7 +9,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     App: typeof import('./../components/App.vue')['default']
     Calendar: typeof import('./../components/Calendar/Calendar.vue')['default']
+    CalendarEvent: typeof import('./../components/Calendar/CalendarEvent.vue')['default']
+    CalendarView: typeof import('./../components/Calendar/CalendarView.vue')['default']
     Counter: typeof import('./../components/Buttons/Counter.vue')['default']
+    DayView: typeof import('./../components/Calendar/ViewTypes/DayView.vue')['default']
     Demo: typeof import('./../components/Demo.vue')['default']
     Dropdown: typeof import('./../components/Calendar/Dropdown.vue')['default']
     Google: typeof import('./../components/Calendar/Providers/Google.vue')['default']
@@ -17,10 +20,12 @@ declare module '@vue/runtime-core' {
     Ics: typeof import('./../components/Calendar/Providers/Ics.vue')['default']
     Index: typeof import('./../components/Calendar/Index.vue')['default']
     Logo: typeof import('./../components/Logo.vue')['default']
+    MonthView: typeof import('./../components/Calendar/ViewTypes/MonthView.vue')['default']
     Office: typeof import('./../components/Calendar/Providers/Office.vue')['default']
     Outlook: typeof import('./../components/Calendar/Providers/Outlook.vue')['default']
     OutlookOnline: typeof import('./../components/Calendar/Providers/OutlookOnline.vue')['default']
     ToggleDark: typeof import('./../components/Buttons/ToggleDark.vue')['default']
+    WeekView: typeof import('./../components/Calendar/ViewTypes/WeekView.vue')['default']
     Yahoo: typeof import('./../components/Calendar/Providers/Yahoo.vue')['default']
   }
 }
