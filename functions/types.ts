@@ -1,8 +1,12 @@
-// the TableStore interface is primarily used with regards to how to persist the data to localStorage
+import type { Ref } from 'vue'
+
 export interface CalendarStore {
   day: Number // the Meilisearch index you would like to use for this table
-  currentMonthYear: string // used as table heads/column titles
-  datesOfThePastMonth: number[] // used as table heads/column titles
-  datesOfTheMonth: number[] // used as table heads/column titles
-  datesOfNextMonth: number[] // used as table heads/column titles
+  month: Ref<Number> // the Meilisearch index you would like to use for this table
+  year: Ref<Number> // the Meilisearch index you would like to use for this table
+  currentMonthYear: Ref<string> // used as table heads/column titles
+  datesOfThePastMonth: Ref<Number[]> // used as table heads/column titles
+  datesOfTheMonth: Ref<Number[]> // used as table heads/column titles
+  datesOfNextMonth: Ref<Number[]> // used as table heads/column titles
+  currentWeekView: Ref<Number[]> // used as table heads/column titles
 }

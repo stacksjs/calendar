@@ -1,10 +1,25 @@
-<script setup>
+<script setup lang="ts">
 import '@unocss/reset/tailwind.css'
+
+interface Props {
+  type: string
+}
+
+const {
+  type,
+} = defineProps<Props>()
 </script>
 
 <template>
-  <MonthView />
-  <WeekView class="hidden" />
+  <MonthView
+    v-if="type === 'month'"
+    :type="type"
+  />
 
-  <DayView class="hidden" />
+  <WeekView
+    v-if="type === 'week'"
+    :type="type"
+  />
+
+  <DayView v-if="type === 'day'" />
 </template>

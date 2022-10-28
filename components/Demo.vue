@@ -4,5 +4,5 @@
   It is rendered when you run `pnpm artisan dev:components`.
 -->
 <template>
-  <CalendarView />
+  <CalendarView type="week" />
 </template>
