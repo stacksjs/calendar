@@ -21,5 +21,8 @@ const {
     :type="type"
   />
 
-  <DayView v-if="type === 'day'" />
+  <DayView
+    v-if="type === 'day'"
+    :type="type"
+  />
 </template>

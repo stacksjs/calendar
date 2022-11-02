@@ -7,7 +7,7 @@ const {
   type,
 } = defineProps<Props>()
 
-const { nextMonth, previousMonth, toggleToday, nextWeek, previousWeek } = useCalendar()
+const { nextMonth, previousMonth, toggleTodayMonth, toggleToday, nextWeek, previousWeek, toggleTodayWeek, nextDay, previousDay } = useCalendar()
 
 function next() {
   if (type === 'month')
@@ -15,6 +15,9 @@ function next() {
 
   if (type === 'week')
     nextWeek()
+
+  if (type === 'day')
+    nextDay()
 }
 
 function previous() {
@@ -23,6 +26,20 @@ function previous() {
 
   if (type === 'week')
     previousWeek()
+
+  if (type === 'day')
+    previousDay()
+}
+
+function today() {
+  if (type === 'month')
+    toggleTodayMonth()
+
+  if (type === 'week')
+    toggleTodayWeek()
+
+  if (type === 'day')
+    toggleToday()
 }
 </script>
 
@@ -54,7 +71,7 @@ function previous() {
         <button
           type="button"
           class="hidden border-t border-b border-gray-300 bg-white px-3.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:relative md:block"
-          @click="toggleToday"
+          @click="today"
         >
           Today
         </button>
