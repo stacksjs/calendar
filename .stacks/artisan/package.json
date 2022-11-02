@@ -2,7 +2,7 @@
   "name": "artisan-init",
   "type": "module",
   "version": "0.34.0",
-  "packageManager": "pnpm@7.14.0",
+  "packageManager": "pnpm@7.14.1",
   "description": "Artisan core.",
   "author": "Chris Breuer",
   "license": "MIT",
@@ -39,8 +39,8 @@
     "*.mjs"
   ],
   "engines": {
-    "node": ">=v18.11.0",
-    "pnpm": ">=7.14.0"
+    "node": ">=v18.12.0",
+    "pnpm": ">=7.14.1"
   },
   "scripts": {
     "artisan": "pnpm run dev && node cli.mjs",
