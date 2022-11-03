@@ -1,13 +1,27 @@
 <script setup lang="ts">
+import type { Events } from '../../../functions/types'
+
 interface Props {
   type: string
+  events: Array<Events>
 }
 
 const {
   type,
+  events,
 } = defineProps<Props>()
 
 const { isToday, currentMonthYear, datesOfThePastMonth, datesOfTheMonth, datesOfNextMonth, month, year } = useCalendar()
+
+function getEvents({ month, day, year }: { month: number; day: any; year: number }) {
+  const currentDate = `${month}-${day}-${year}`
+
+  const filteredEvents: Array<Events> = events.filter((event) => {
+    return event.date === currentDate
+  })
+
+  return filteredEvents
+}
 </script>
 
 <template>
@@ -69,7 +83,28 @@ const { isToday, currentMonthYear, datesOfThePastMonth, datesOfTheMonth, datesOf
               <!--
             Is today, include: "flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white"
           -->
-              <time datetime="2021-12-27">{{ pastDate }}</time>
+              <time :datetime="`${year}-${month}-${pastDate}`">{{ pastDate }}</time>
+
+              <ol
+                v-if="getEvents({ month, day: pastDate, year }).length"
+                class="mt-2"
+              >
+                <li
+                  v-for="(event, index) in getEvents({ month, day: pastDate, year })"
+                  :key="index"
+                >
+                  <a
+                    href="#"
+                    class="group flex"
+                  >
+                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{ event.title }}</p>
+                    <time
+                      datetime="2022-01-03T10:00"
+                      class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block"
+                    >{{ event.time.from }}</time>
+                  </a>
+                </li>
+              </ol>
             </div>
 
             <div
@@ -79,8 +114,29 @@ const { isToday, currentMonthYear, datesOfThePastMonth, datesOfTheMonth, datesOf
             >
               <time
                 :class="{ 'flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white': isToday(`${month}-${date}-${year}`) }"
-                datetime="2022-01-01"
+                :datetime="`${year}-${month}-${date}`"
               >{{ date }}</time>
+
+              <ol
+                v-if="getEvents({ month, day: date, year }).length"
+                class="mt-2"
+              >
+                <li
+                  v-for="(event, index) in getEvents({ month: month + 1, day: date, year })"
+                  :key="index"
+                >
+                  <a
+                    href="#"
+                    class="group flex"
+                  >
+                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{ event.title }}</p>
+                    <time
+                      datetime="2022-01-03T10:00"
+                      class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block"
+                    >{{ event.time.from }}</time>
+                  </a>
+                </li>
+              </ol>
             </div>
 
             <div
@@ -88,7 +144,28 @@ const { isToday, currentMonthYear, datesOfThePastMonth, datesOfTheMonth, datesOf
               :key="nextDate"
               class="relative bg-gray-50 py-2 px-3 text-gray-500"
             >
-              <time datetime="2022-02-01">{{ nextDate }}</time>
+              <time :datetime="`${year}-${month}-${nextDate}`">{{ nextDate }}</time>
+
+              <ol
+                v-if="getEvents({ month, day: nextDate, year }).length"
+                class="mt-2"
+              >
+                <li
+                  v-for="(event, index) in getEvents({ month: month + 2, day: nextDate, year })"
+                  :key="index"
+                >
+                  <a
+                    href="#"
+                    class="group flex"
+                  >
+                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{ event.title }}</p>
+                    <time
+                      datetime="2022-01-03T10:00"
+                      class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block"
+                    >{{ event.time.from }}</time>
+                  </a>
+                </li>
+              </ol>
             </div>
           </div>
           <div class="isolate grid w-full grid-cols-7 grid-rows-6 gap-px lg:hidden">
@@ -113,436 +190,37 @@ const { isToday, currentMonthYear, datesOfThePastMonth, datesOfTheMonth, datesOf
             Is selected and is not today, include: "bg-gray-900"
           -->
               <time
+                v-for="pastDate in datesOfThePastMonth"
+                :key="pastDate"
                 datetime="2021-12-27"
                 class="ml-auto"
-              >27</time>
+              >{{ pastDate }}</time>
               <span class="sr-only">0 events</span>
             </button>
+
             <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2021-12-28"
-                class="ml-auto"
-              >28</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2021-12-29"
-                class="ml-auto"
-              >29</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2021-12-30"
-                class="ml-auto"
-              >30</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2021-12-31"
-                class="ml-auto"
-              >31</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
+              v-for="date in datesOfTheMonth"
+              :key="date"
               type="button"
               class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
             >
               <time
                 datetime="2022-01-01"
                 class="ml-auto"
-              >1</time>
+              >{{ date }}</time>
               <span class="sr-only">0 events</span>
             </button>
+
             <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-02"
-                class="ml-auto"
-              >2</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-03"
-                class="ml-auto"
-              >3</time>
-              <span class="sr-only">2 events</span>
-              <span class="-mx-0.5 mt-auto flex flex-wrap-reverse">
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-              </span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-04"
-                class="ml-auto"
-              >4</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-05"
-                class="ml-auto"
-              >5</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-06"
-                class="ml-auto"
-              >6</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-07"
-                class="ml-auto"
-              >7</time>
-              <span class="sr-only">1 event</span>
-              <span class="-mx-0.5 mt-auto flex flex-wrap-reverse">
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-              </span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-08"
-                class="ml-auto"
-              >8</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-09"
-                class="ml-auto"
-              >9</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-10"
-                class="ml-auto"
-              >10</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-11"
-                class="ml-auto"
-              >11</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 font-semibold text-indigo-600 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-12"
-                class="ml-auto"
-              >12</time>
-              <span class="sr-only">1 event</span>
-              <span class="-mx-0.5 mt-auto flex flex-wrap-reverse">
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-              </span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-13"
-                class="ml-auto"
-              >13</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-14"
-                class="ml-auto"
-              >14</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-15"
-                class="ml-auto"
-              >15</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-16"
-                class="ml-auto"
-              >16</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-17"
-                class="ml-auto"
-              >17</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-18"
-                class="ml-auto"
-              >18</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-19"
-                class="ml-auto"
-              >19</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-20"
-                class="ml-auto"
-              >20</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-21"
-                class="ml-auto"
-              >21</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 font-semibold text-white hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-22"
-                class="ml-auto flex h-6 w-6 items-center justify-center rounded-full bg-gray-900"
-              >22</time>
-              <span class="sr-only">2 events</span>
-              <span class="-mx-0.5 mt-auto flex flex-wrap-reverse">
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-              </span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-23"
-                class="ml-auto"
-              >23</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-24"
-                class="ml-auto"
-              >24</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-25"
-                class="ml-auto"
-              >25</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-26"
-                class="ml-auto"
-              >26</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-27"
-                class="ml-auto"
-              >27</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-28"
-                class="ml-auto"
-              >28</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-29"
-                class="ml-auto"
-              >29</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-30"
-                class="ml-auto"
-              >30</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-white py-2 px-3 text-gray-900 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-01-31"
-                class="ml-auto"
-              >31</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
+              v-for="nextDate in datesOfNextMonth"
+              :key="nextDate"
               type="button"
               class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
             >
               <time
                 datetime="2022-02-01"
                 class="ml-auto"
-              >1</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-02-02"
-                class="ml-auto"
-              >2</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-02-03"
-                class="ml-auto"
-              >3</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-02-04"
-                class="ml-auto"
-              >4</time>
-              <span class="sr-only">1 event</span>
-              <span class="-mx-0.5 mt-auto flex flex-wrap-reverse">
-                <span class="mx-0.5 mb-1 h-1.5 w-1.5 rounded-full bg-gray-400" />
-              </span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-02-05"
-                class="ml-auto"
-              >5</time>
-              <span class="sr-only">0 events</span>
-            </button>
-            <button
-              type="button"
-              class="flex h-14 flex-col bg-gray-50 py-2 px-3 text-gray-500 hover:bg-gray-100 focus:z-10"
-            >
-              <time
-                datetime="2022-02-06"
-                class="ml-auto"
-              >6</time>
+              >{{ nextDate }}</time>
               <span class="sr-only">0 events</span>
             </button>
           </div>

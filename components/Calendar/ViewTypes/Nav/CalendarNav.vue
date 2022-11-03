@@ -7,28 +7,55 @@ const {
   type,
 } = defineProps<Props>()
 
+const emit = defineEmits<{
+  (e: 'nextDay'): void
+  (e: 'nextWeek'): void
+  (e: 'nextMonth'): void
+  (e: 'previousDay'): void
+  (e: 'previousWeek'): void
+  (e: 'previousMonth'): void
+}>()
+
 const { nextMonth, previousMonth, toggleTodayMonth, toggleToday, nextWeek, previousWeek, toggleTodayWeek, nextDay, previousDay } = useCalendar()
 
 function next() {
-  if (type === 'month')
+  if (type === 'month') {
     nextMonth()
 
-  if (type === 'week')
+    emit('nextMonth')
+  }
+
+  if (type === 'week') {
     nextWeek()
 
-  if (type === 'day')
+    emit('nextWeek')
+  }
+
+  if (type === 'day') {
     nextDay()
+
+    emit('nextDay')
+  }
 }
 
 function previous() {
-  if (type === 'month')
+  if (type === 'month') {
     previousMonth()
 
-  if (type === 'week')
+    emit('previousMonth')
+  }
+
+  if (type === 'week') {
     previousWeek()
 
-  if (type === 'day')
+    emit('previousWeek')
+  }
+
+  if (type === 'day') {
     previousDay()
+
+    emit('previousDay')
+  }
 }
 
 function today() {

@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     CalendarNav: typeof import('./../components/Calendar/ViewTypes/Nav/CalendarNav.vue')['default']
     CalendarView: typeof import('./../components/Calendar/CalendarView.vue')['default']
     Counter: typeof import('./../components/Buttons/Counter.vue')['default']
+    CreateEvent: typeof import('./../components/Calendar/Modals/CreateEvent.vue')['default']
     DayView: typeof import('./../components/Calendar/ViewTypes/DayView.vue')['default']
     Demo: typeof import('./../components/Demo.vue')['default']
     Dropdown: typeof import('./../components/Calendar/Dropdown.vue')['default']

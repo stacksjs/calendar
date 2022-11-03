@@ -1,13 +1,43 @@
 <script setup lang="ts">
+import type { Events } from '../../../functions/types'
+
 interface Props {
   type: string
+  events: Array<Events>
 }
 
 const {
   type,
+  events,
 } = defineProps<Props>()
 
 const { currentWeekView, month, year, isToday, currentMonthYear, isCurrentWeekViewToday } = useCalendar()
+
+const filteredEvents = computed(() => {
+  return events.filter((event) => {
+    return currentWeekView.value.includes(event.day)
+  })
+})
+
+const weekHasEvents = computed(() => {
+  const weekEvents: Array<Events> = events.filter((event) => {
+    return currentWeekView.value.includes(event.day)
+  })
+
+  return weekEvents.length
+})
+
+function weekPosition(day: number) {
+  return currentWeekView.value.indexOf(day)
+}
+
+function getClass(event: Events): string {
+  const position = weekPosition(event.day)
+
+  console.log(position + 1x)
+
+  return `sm:col-start-${position + 1}`
+}
 </script>
 
 <template>
@@ -327,22 +357,27 @@ const { currentWeekView, month, year, isToday, currentMonthYear, isCurrentWeekVi
 
               <!-- Events -->
               <ol
+                v-if="weekHasEvents"
                 class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-12"
                 style="grid-template-rows: 1.75rem repeat(288, minmax(0, 1fr)) auto; padding: 0"
               >
                 <li
-                  class="relative mt-px flex sm:col-start-3"
+                  v-for="(event, index) in filteredEvents"
+                  :key="index"
+                  class="relative mt-px flex"
+                  :class="getClass(event)"
                   style="grid-row: 74 / span 12"
                 >
                   <a
                     href="#"
                     class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-blue-50 p-2 text-xs leading-5 hover:bg-blue-100"
                   >
-                    <p class="order-1 font-semibold text-blue-700">Breakfast</p>
-                    <p class="text-blue-500 group-hover:text-blue-700"><time datetime="2022-01-12T06:00">6:00 AM</time></p>
+                    <p class="order-1 font-semibold text-blue-700">{{ event.title }}</p>
+                    <p class="text-blue-500 group-hover:text-blue-700"><time datetime="2022-01-12T06:00">{{ event.time.from }}</time></p>
                   </a>
                 </li>
-                <li
+
+                <!-- <li
                   class="relative mt-px flex sm:col-start-3"
                   style="grid-row: 92 / span 30"
                 >
@@ -365,7 +400,7 @@ const { currentWeekView, month, year, isToday, currentMonthYear, isCurrentWeekVi
                     <p class="order-1 font-semibold text-gray-700">Meeting with design team at Disney</p>
                     <p class="text-gray-500 group-hover:text-gray-700"><time datetime="2022-01-15T10:00">10:00 AM</time></p>
                   </a>
-                </li>
+                </li> -->
               </ol>
             </div>
           </div>

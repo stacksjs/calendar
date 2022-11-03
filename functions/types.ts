@@ -12,3 +12,18 @@ export interface CalendarStore {
   currentWeekView: Ref<number[]> // used as table heads/column titles
   currentWeekViewToday: Ref<number[]> // used as table heads/column titles
 }
+
+export interface Time {
+  from: string
+  to: string
+}
+export interface Events {
+  date: string
+  title: string
+  description: string
+  month: number
+  day: number
+  year: number
+  time: Time
+}
+
