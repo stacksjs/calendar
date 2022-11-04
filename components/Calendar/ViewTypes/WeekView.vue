@@ -11,20 +11,18 @@ const {
   events,
 } = defineProps<Props>()
 
-const { currentWeekView, month, year, isToday, currentMonthYear, isCurrentWeekViewToday } = useCalendar()
+const { currentWeekView, year, isToday, currentMonthYear, isCurrentWeekViewToday } = useCalendar()
 
 const filteredEvents = computed(() => {
-  return events.filter((event) => {
-    return currentWeekView.value.includes(event.day)
-  })
-})
+  const currentEvents = currentWeekView.value.map((week: any) => {
+    // console.log(week.date)
+    return events.filter((event: Events) => {
+      return event.day === week.date && event.month === week.month && event.year === year.value
+    })
+  }).filter((event: any) => event.length > 0)
+    .map((event: Array<Event>) => event[0])
 
-const weekHasEvents = computed(() => {
-  const weekEvents: Array<Events> = events.filter((event) => {
-    return currentWeekView.value.includes(event.day)
-  })
-
-  return weekEvents.length
+  return currentEvents
 })
 
 function weekPosition(day: number) {
@@ -34,9 +32,9 @@ function weekPosition(day: number) {
 function getClass(event: Events): string {
   const position = weekPosition(event.day)
 
-  console.log(position + 1x)
+  // console.log(position + 1)
 
-  return `sm:col-start-${position + 1}`
+  return `col-start-${position + 1}`
 }
 </script>
 
@@ -106,84 +104,84 @@ function getClass(event: Events): string {
               <div class="col-end-1 w-14" />
               <div class="flex items-center justify-center py-3">
                 <div class="flex items-center justify-center py-3">
-                  <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[0]}-${year}`) && isCurrentWeekViewToday }">
+                  <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[0].month}-${currentWeekView[0].date}-${year}`) && isCurrentWeekViewToday }">
                     Sun
                     <span
                       class="items-center justify-center font-semibold text-gray-900"
-                      :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${month}-${currentWeekView[0]}-${year}`) && isCurrentWeekViewToday }"
+                      :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${currentWeekView[0].month}-${currentWeekView[0].date}-${year}`) && isCurrentWeekViewToday }"
                     >
-                      {{ currentWeekView[0] }}
+                      {{ currentWeekView[0].date }}
                     </span>
                   </span>
                 </div>
               </div>
               <div class="flex items-center justify-center py-3">
                 <div class="flex items-center justify-center py-3">
-                  <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[1]}-${year}`) && isCurrentWeekViewToday }">
+                  <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[1].month}-${currentWeekView[1].date}-${year}`) && isCurrentWeekViewToday }">
                     Mon
                     <span
                       class="items-center justify-center font-semibold text-gray-900"
-                      :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${month}-${currentWeekView[1]}-${year}`) && isCurrentWeekViewToday }"
+                      :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${currentWeekView[1].month}-${currentWeekView[1].date}-${year}`) && isCurrentWeekViewToday }"
                     >
-                      {{ currentWeekView[1] }}
+                      {{ currentWeekView[1].date }}
                     </span>
                   </span>
                 </div>
               </div>
               <div class="flex items-center justify-center py-3">
-                <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[2]}-${year}`) && isCurrentWeekViewToday }">
+                <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[2].month}-${currentWeekView[2].date}-${year}`) && isCurrentWeekViewToday }">
                   Tue
                   <span
                     class="items-center justify-center font-semibold text-gray-900"
-                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${month}-${currentWeekView[2]}-${year}`) && isCurrentWeekViewToday }"
+                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${currentWeekView[2].month}-${currentWeekView[2].date}-${year}`) && isCurrentWeekViewToday }"
                   >
-                    {{ currentWeekView[2] }}
+                    {{ currentWeekView[2].date }}
                   </span>
                 </span>
               </div>
               <div class="flex items-center justify-center py-3">
                 <div class="flex items-center justify-center py-3">
-                  <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[3]}-${year}`) && isCurrentWeekViewToday }">
+                  <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[3].month}-${currentWeekView[3].date}-${year}`) && isCurrentWeekViewToday }">
                     Wed
                     <span
                       class="items-center justify-center font-semibold text-gray-900"
-                      :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${month}-${currentWeekView[3]}-${year}`) && isCurrentWeekViewToday }"
+                      :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${currentWeekView[3].month}-${currentWeekView[3].date}-${year}`) && isCurrentWeekViewToday }"
                     >
-                      {{ currentWeekView[3] }}
+                      {{ currentWeekView[3].date }}
                     </span>
                   </span>
                 </div>
               </div>
               <div class="flex items-center justify-center py-3">
-                <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[4]}-${year}`) && isCurrentWeekViewToday }">
+                <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[4].month}-${currentWeekView[4].date}-${year}`) && isCurrentWeekViewToday }">
                   Thu
                   <span
                     class="items-center justify-center font-semibold text-gray-900"
-                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white ml-1.5 flex h-8 w-8': isToday(`${month}-${currentWeekView[4]}-${year}`) && isCurrentWeekViewToday }"
+                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white ml-1.5 flex h-8 w-8': isToday(`${currentWeekView[4].month}-${currentWeekView[4].date}-${year}`) && isCurrentWeekViewToday }"
                   >
-                    {{ currentWeekView[4] }}
+                    {{ currentWeekView[4].date }}
                   </span>
                 </span>
               </div>
               <div class="flex items-center justify-center py-3">
-                <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[5]}-${year}`) && isCurrentWeekViewToday }">
+                <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[5].month}-${currentWeekView[5].date}-${year}`) && isCurrentWeekViewToday }">
                   Fri
                   <span
                     class="items-center justify-center font-semibold text-gray-900"
-                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${month}-${currentWeekView[5]}-${year}`) && isCurrentWeekViewToday }"
+                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${currentWeekView[5].month}-${currentWeekView[5].date}-${year}`) && isCurrentWeekViewToday }"
                   >
-                    {{ currentWeekView[5] }}
+                    {{ currentWeekView[5].date }}
                   </span>
                 </span>
               </div>
               <div class="flex items-center justify-center py-3">
-                <span :class="{ 'flex items-baseline': isToday(`${month}-${currentWeekView[6]}-${year}`) && isCurrentWeekViewToday }">
+                <span :class="{ 'flex items-baseline': isToday(`${currentWeekView[6].month}-${currentWeekView[6].date}-${year}`) && isCurrentWeekViewToday }">
                   Sat
                   <span
                     class="items-center justify-center font-semibold text-gray-900"
-                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${month}-${currentWeekView[6]}-${year}`) && isCurrentWeekViewToday }"
+                    :class="{ 'rounded-full bg-indigo-600 font-semibold text-white flex h-8 w-8 ml-1.5': isToday(`${currentWeekView[6].month}-${currentWeekView[6].date}-${year}`) && isCurrentWeekViewToday }"
                   >
-                    {{ currentWeekView[6] }}
+                    {{ currentWeekView[6].date }}
                   </span>
                 </span>
               </div>
@@ -357,7 +355,7 @@ function getClass(event: Events): string {
 
               <!-- Events -->
               <ol
-                v-if="weekHasEvents"
+                v-if="filteredEvents.length"
                 class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-12"
                 style="grid-template-rows: 1.75rem repeat(288, minmax(0, 1fr)) auto; padding: 0"
               >
@@ -376,31 +374,6 @@ function getClass(event: Events): string {
                     <p class="text-blue-500 group-hover:text-blue-700"><time datetime="2022-01-12T06:00">{{ event.time.from }}</time></p>
                   </a>
                 </li>
-
-                <!-- <li
-                  class="relative mt-px flex sm:col-start-3"
-                  style="grid-row: 92 / span 30"
-                >
-                  <a
-                    href="#"
-                    class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-pink-50 p-2 text-xs leading-5 hover:bg-pink-100"
-                  >
-                    <p class="order-1 font-semibold text-pink-700">Flight to Paris</p>
-                    <p class="text-pink-500 group-hover:text-pink-700"><time datetime="2022-01-12T07:30">7:30 AM</time></p>
-                  </a>
-                </li>
-                <li
-                  class="relative mt-px hidden sm:col-start-6 sm:flex"
-                  style="grid-row: 122 / span 24"
-                >
-                  <a
-                    href="#"
-                    class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-gray-100 p-2 text-xs leading-5 hover:bg-gray-200"
-                  >
-                    <p class="order-1 font-semibold text-gray-700">Meeting with design team at Disney</p>
-                    <p class="text-gray-500 group-hover:text-gray-700"><time datetime="2022-01-15T10:00">10:00 AM</time></p>
-                  </a>
-                </li> -->
               </ol>
             </div>
           </div>

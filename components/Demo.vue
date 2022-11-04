@@ -3,11 +3,11 @@ import type { Events } from '../functions/types'
 
 const events: Array<Events> = [
   {
-    date: '12-8-2022',
+    date: '10-30-2022',
     title: 'test title',
     description: 'test description',
-    month: 12,
-    day: 8,
+    month: 10,
+    day: 30,
     year: 2022,
     time: {
       from: '2:00PM',
@@ -16,11 +16,11 @@ const events: Array<Events> = [
   },
 
   {
-    date: '11-8-2022',
+    date: '10-31-2022',
     title: 'test title',
     description: 'test description',
-    month: 11,
-    day: 8,
+    month: 10,
+    day: 31,
     year: 2022,
     time: {
       from: '8:00AM',
@@ -40,24 +40,24 @@ const events: Array<Events> = [
       to: '6:00PM',
     },
   },
-  // {
-  //   date: '11-5-2022',
-  //   title: 'test title',
-  //   description: 'test description',
-  //   month: 11,
-  //   day: 5,
-  //   year: 2022,
-  //   time: {
-  //     from: '5:00PM',
-  //     to: '6:00PM',
-  //   },
-  // },
   {
-    date: '11-12-2022',
+    date: '11-2-2022',
     title: 'test title',
     description: 'test description',
     month: 11,
-    day: 12,
+    day: 2,
+    year: 2022,
+    time: {
+      from: '5:00PM',
+      to: '6:00PM',
+    },
+  },
+  {
+    date: '11-4-2022',
+    title: 'test title',
+    description: 'test description',
+    month: 11,
+    day: 4,
     year: 2022,
     time: {
       from: '12:00PM',
@@ -69,7 +69,7 @@ const events: Array<Events> = [
 
 <template>
   <CalendarView
-    type="week"
+    type="day"
     :events="events"
   />
 </template>
