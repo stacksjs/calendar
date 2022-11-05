@@ -228,6 +228,7 @@
     "useBrowserLocation": true,
     "useCached": true,
     "useCalendar": true,
+    "useCalendarTime": true,
     "useCeil": true,
     "useClamp": true,
     "useClipboard": true,

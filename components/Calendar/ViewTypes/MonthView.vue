@@ -113,12 +113,12 @@ function getEvents({ month, day, year }: { month: number; day: any; year: number
               class="relative bg-white py-2 px-3"
             >
               <time
-                :class="{ 'flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white': isToday(`${month}-${date}-${year}`) }"
+                :class="{ 'flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white': isToday(`${month + 1}-${date}-${year}`) }"
                 :datetime="`${year}-${month}-${date}`"
               >{{ date }}</time>
 
               <ol
-                v-if="getEvents({ month, day: date, year }).length"
+                v-if="getEvents({ month: month + 1, day: date, year }).length"
                 class="mt-2"
               >
                 <li
@@ -147,7 +147,7 @@ function getEvents({ month, day, year }: { month: number; day: any; year: number
               <time :datetime="`${year}-${month}-${nextDate}`">{{ nextDate }}</time>
 
               <ol
-                v-if="getEvents({ month, day: nextDate, year }).length"
+                v-if="getEvents({ month: month + 2, day: nextDate, year }).length"
                 class="mt-2"
               >
                 <li

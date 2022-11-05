@@ -93,32 +93,15 @@ const todayWeek = weekDates.filter((week) => {
   return weekDates.includes(currentDay)
 })
 
-function isCurrentDay(date: string) {
-  const currentDateString = `${currentMonth}-${currentDay}-${currentYear}`
-
-  return date === `${currentDateString}`
-}
-
 const todayWeekIndex = currentDay > 20 ? todayWeek.length - 1 : 0
 const currentWeekView = ref(todayWeek[todayWeekIndex])
 const isCurrentWeekViewToday = ref(currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date))
 let indexWeek = indexOfArray(weekDates, currentWeekView.value)
 
-function nextWeek() {
-  indexWeek = indexWeek += 1
+function isCurrentDay(date: string) {
+  const currentDateString = `${currentMonth}-${currentDay}-${currentYear}`
 
-  if (indexWeek >= 5) {
-    nextMonth()
-
-    indexWeek = 0
-  }
-
-  if (currentWeekView.value.length === weekDates[indexWeek].length && currentWeekView.value.every((value, index) => value.date === weekDates[indexWeek][index].date))
-    indexWeek = indexWeek += 1
-
-  currentWeekView.value = weekDates[indexWeek]
-
-  isCurrentWeekViewToday.value = currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date)
+  return date === `${currentDateString}`
 }
 
 function nextDay() {
@@ -156,6 +139,7 @@ function goToDay(date: number, monthDate: number) {
 
   currentMonthDayYear.value = dt.toLocaleString('default', { month: 'long', day: 'numeric', year: 'numeric' })
   dayName.value = new Date(`${currentMonth}-${currentDay}-${currentYear}`).toLocaleString('default', { weekday: 'long' })
+  day.value = currentDay
 }
 
 function toggleToday() {
@@ -198,6 +182,23 @@ function toggleTodayWeek() {
   currentWeekView.value = todayWeek[todayWeekIndex]
 
   indexWeek = indexOfArray(weekDates, currentWeekView.value)
+
+  isCurrentWeekViewToday.value = currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date)
+}
+
+function nextWeek() {
+  indexWeek = indexWeek += 1
+
+  if (indexWeek >= 5) {
+    nextMonth()
+
+    indexWeek = 0
+  }
+
+  if (currentWeekView.value.length === weekDates[indexWeek].length && currentWeekView.value.every((value, index) => value.date === weekDates[indexWeek][index].date))
+    indexWeek = indexWeek += 1
+
+  currentWeekView.value = weekDates[indexWeek]
 
   isCurrentWeekViewToday.value = currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date)
 }

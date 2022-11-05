@@ -12,6 +12,7 @@ const {
 } = defineProps<Props>()
 
 const { currentWeekView, year, isToday, currentMonthYear, isCurrentWeekViewToday } = useCalendar()
+const { getStyle } = useCalendarTime()
 
 const filteredEvents = computed(() => {
   const currentEvents = currentWeekView.value.map((week: any) => {
@@ -26,13 +27,13 @@ const filteredEvents = computed(() => {
 })
 
 function weekPosition(day: number) {
-  return currentWeekView.value.indexOf(day)
+  const currentVal = currentWeekView.value.find((week: any) => week.date === day)
+
+  return currentWeekView.value.indexOf(currentVal)
 }
 
 function getClass(event: Events): string {
   const position = weekPosition(event.day)
-
-  // console.log(position + 1)
 
   return `col-start-${position + 1}`
 }
@@ -364,7 +365,7 @@ function getClass(event: Events): string {
                   :key="index"
                   class="relative mt-px flex"
                   :class="getClass(event)"
-                  style="grid-row: 74 / span 12"
+                  :style="getStyle(event)"
                 >
                   <a
                     href="#"

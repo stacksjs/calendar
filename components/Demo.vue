@@ -3,15 +3,15 @@ import type { Events } from '../functions/types'
 
 const events: Array<Events> = [
   {
-    date: '10-30-2022',
+    date: '5-16-2022',
     title: 'test title',
     description: 'test description',
-    month: 10,
-    day: 30,
+    month: 5,
+    day: 16,
     year: 2022,
     time: {
-      from: '2:00PM',
-      to: '3:00PM',
+      from: '1:00 AM',
+      to: '1:00 PM',
     },
   },
 
@@ -23,8 +23,8 @@ const events: Array<Events> = [
     day: 31,
     year: 2022,
     time: {
-      from: '8:00AM',
-      to: '9:00AM',
+      from: '8:15 AM',
+      to: '10:00 AM',
     },
   },
 
@@ -36,40 +36,41 @@ const events: Array<Events> = [
     day: 1,
     year: 2022,
     time: {
-      from: '5:00PM',
-      to: '6:00PM',
+      from: '7:05 PM',
+      to: '9:00 PM',
     },
   },
   {
-    date: '11-2-2022',
+    date: '11-16-2022',
     title: 'test title',
     description: 'test description',
     month: 11,
-    day: 2,
+    day: 16,
     year: 2022,
     time: {
-      from: '5:00PM',
-      to: '6:00PM',
+      from: '1:15 PM',
+      to: '6:00 PM',
     },
   },
   {
-    date: '11-4-2022',
+    date: '12-5-2022',
     title: 'test title',
     description: 'test description',
-    month: 11,
-    day: 4,
+    month: 12,
+    day: 5,
     year: 2022,
     time: {
-      from: '12:00PM',
-      to: '01:00PM',
+      from: '12:12 PM',
+      to: '2:00 PM',
     },
   },
+
 ]
 </script>
 
 <template>
   <CalendarView
-    type="day"
+    type="month"
     :events="events"
   />
 </template>

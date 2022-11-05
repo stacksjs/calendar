@@ -12,6 +12,7 @@ const {
 } = defineProps<Props>()
 
 const { isCurrentDay, currentMonthYear, previousMonth, nextMonth, goToDay, currentMonthDayYear, datesOfThePastMonth, datesOfTheMonth, datesOfNextMonth, dayName, month, day, year } = useCalendar()
+const { getStyle } = useCalendarTime()
 
 const filteredEvents = computed(() => {
   const currentEvents = events.filter((event: Events) => {
@@ -20,8 +21,6 @@ const filteredEvents = computed(() => {
 
   return currentEvents
 })
-
-console.log(filteredEvents.value)
 </script>
 
 <template>
@@ -264,7 +263,7 @@ console.log(filteredEvents.value)
                   v-for="(event, index) in filteredEvents"
                   :key="index"
                   class="relative mt-px flex"
-                  style="grid-row: 74 / span 12"
+                  :style="getStyle(event)"
                 >
                   <a
                     href="#"
