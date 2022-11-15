@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  calendarTypes: Array<string>
+  calendarTypes: string[]
 }
 
 const {

@@ -5,4 +5,4 @@ import { camelCase, capitalCase, constantCase, dotCase, headerCase, noCase, para
 import { contains } from './utils/array'
 import { isManifest } from './utils/manifest'
 
-export { hasFiles, isFile, isFolder, readJsonFile, readTextFile, writeJsonFile, writeTextFile, _dirname, isInitialized, isManifest, copyFiles, deleteFolder, hasComponents, hasFunctions, generateLibEntry, generateVueCompat, generatePackageJson, camelCase, capitalCase, constantCase, dotCase, headerCase, noCase, paramCase, pascalCase, pathCase, kebabCase, sentenceCase, snakeCase, contains }
+export { hasFiles, isFile, isFolder, readJsonFile, readTextFile, writeJsonFile, writeTextFile, _dirname, isInitialized, isManifest, copyFiles, deleteFolder, hasComponents, hasFunctions, generateLibEntry, generateVueCompat, generatePackageJson, camelCase, capitalCase, constantCase, dotCase, headerCase, noCase, paramCase, pascalCase, pathCase, sentenceCase, snakeCase, contains }

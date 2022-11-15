@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 
-import type { CalendarStore } from './types'
+import type { CalendarStore, WeekDates } from './types'
 
 const dt = new Date()
 
@@ -60,7 +60,7 @@ for (let i = 0; i < remainingDays; i++) {
   datesOfNextMonth.value.push(firstDaysOfNextMonth)
 }
 
-function isToday(date: string) {
+function isToday(date: string): Boolean {
   const dt = new Date()
 
   const day = dt.getDate()
@@ -85,7 +85,7 @@ let datesOfNextMonthMapped = datesOfNextMonth.value.map((date) => {
 let allDatesWithMonths = [...datesOfThePastMonthMapped, ...datesOfTheMonthMapped, ...datesOfNextMonthMapped]
 
 // const allDates = [...datesOfThePastMonth.value, ...datesOfTheMonth.value, ...datesOfNextMonth.value]
-let weekDates: Array<any[]> = [allDatesWithMonths.slice(0, 7), allDatesWithMonths.slice(7, 14), allDatesWithMonths.slice(14, 21), allDatesWithMonths.slice(21, 28), allDatesWithMonths.slice(28, 35), allDatesWithMonths.slice(35, 42)]
+let weekDates: Array<WeekDates[]> = [allDatesWithMonths.slice(0, 7), allDatesWithMonths.slice(7, 14), allDatesWithMonths.slice(14, 21), allDatesWithMonths.slice(21, 28), allDatesWithMonths.slice(28, 35), allDatesWithMonths.slice(35, 42)]
 
 const todayWeek = weekDates.filter((week) => {
   const weekDates = week.map(date => date.date)
@@ -98,13 +98,13 @@ const currentWeekView = ref(todayWeek[todayWeekIndex])
 const isCurrentWeekViewToday = ref(currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date))
 let indexWeek = indexOfArray(weekDates, currentWeekView.value)
 
-function isCurrentDay(date: string) {
+function isCurrentDay(date: string): Boolean {
   const currentDateString = `${currentMonth}-${currentDay}-${currentYear}`
 
   return date === `${currentDateString}`
 }
 
-function nextDay() {
+function nextDay(): void {
   currentDay = currentDay += 1
 
   const lastDayOfTheMonth = datesOfTheMonth.value[datesOfTheMonth.value.length - 1]
@@ -124,7 +124,7 @@ function nextDay() {
   day.value = currentDay
 }
 
-function goToDay(date: number, monthDate: number) {
+function goToDay(date: number, monthDate: number): void {
   if (monthDate === currentMonth + 1)
     nextMonth()
 
@@ -142,7 +142,7 @@ function goToDay(date: number, monthDate: number) {
   day.value = currentDay
 }
 
-function toggleToday() {
+function toggleToday(): void {
   const dt = new Date()
 
   currentMonth = dt.getMonth() + 1
@@ -155,7 +155,7 @@ function toggleToday() {
   dayName.value = new Date(`${currentMonth}-${currentDay}-${currentYear}`).toLocaleString('default', { weekday: 'long' })
 }
 
-function previousDay() {
+function previousDay(): void {
   currentDay = currentDay -= 1
   const lastDayOfLastMonth = datesOfThePastMonth.value[datesOfThePastMonth.value.length - 1]
   const firstDayOfTheMonth = datesOfTheMonth.value[0]
@@ -176,7 +176,7 @@ function previousDay() {
   day.value = currentDay
 }
 
-function toggleTodayWeek() {
+function toggleTodayWeek(): void {
   toggleTodayMonth()
 
   currentWeekView.value = todayWeek[todayWeekIndex]
@@ -186,7 +186,7 @@ function toggleTodayWeek() {
   isCurrentWeekViewToday.value = currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date)
 }
 
-function nextWeek() {
+function nextWeek(): void {
   indexWeek = indexWeek += 1
 
   if (indexWeek >= 5) {
@@ -203,7 +203,7 @@ function nextWeek() {
   isCurrentWeekViewToday.value = currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date)
 }
 
-function previousWeek() {
+function previousWeek(): void {
   indexWeek = indexWeek -= 1
 
   if (indexWeek < 0) {
@@ -219,7 +219,7 @@ function previousWeek() {
   isCurrentWeekViewToday.value = currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date)
 }
 
-function nextMonth() {
+function nextMonth(): void {
   currentMonth = currentMonth + 1
 
   if (currentMonth > 12) {
@@ -234,7 +234,7 @@ function nextMonth() {
   initiateDates(dt)
 }
 
-function toggleTodayMonth() {
+function toggleTodayMonth(): void {
   const dt = new Date()
 
   currentMonth = dt.getMonth() + 1
@@ -243,7 +243,7 @@ function toggleTodayMonth() {
   initiateDates(dt)
 }
 
-function previousMonth() {
+function previousMonth(): void {
   currentMonth = currentMonth - 1
 
   if (currentMonth < 1) {
@@ -258,7 +258,7 @@ function previousMonth() {
   initiateDates(dt)
 }
 
-function initiateDates(dt: Date) {
+function initiateDates(dt: Date): void {
   day.value = dt.getDate()
   month.value = dt.getMonth()
   year.value = dt.getFullYear()
@@ -328,7 +328,7 @@ function initiateDates(dt: Date) {
   weekDates = [allDatesWithMonths.slice(0, 7), allDatesWithMonths.slice(7, 14), allDatesWithMonths.slice(14, 21), allDatesWithMonths.slice(21, 28), allDatesWithMonths.slice(28, 35), allDatesWithMonths.slice(35, 42)]
 }
 
-function indexOfArray(array: Array<number[]>, item: number[]) {
+function indexOfArray(array: Array<WeekDates[]>, item: WeekDates[]): number {
   for (let i = 0; i < array.length; i++) {
     // This if statement depends on the format of your array
     if (array[i][0] === item[0] && array[i][1] === item[1])

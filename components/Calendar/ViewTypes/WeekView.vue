@@ -3,7 +3,7 @@ import type { Events } from '../../../functions/types'
 
 interface Props {
   type: string
-  events: Array<Events>
+  events: Events[]
 }
 
 const {
@@ -21,12 +21,12 @@ const filteredEvents = computed(() => {
       return event.day === week.date && event.month === week.month && event.year === year.value
     })
   }).filter((event: any) => event.length > 0)
-    .map((event: Array<Event>) => event[0])
+    .map((event: Event[]) => event[0])
 
   return currentEvents
 })
 
-function weekPosition(day: number) {
+function weekPosition(day: number): number {
   const currentVal = currentWeekView.value.find((week: any) => week.date === day)
 
   return currentWeekView.value.indexOf(currentVal)

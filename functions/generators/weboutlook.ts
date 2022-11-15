@@ -1,9 +1,11 @@
+import type { CalendarLink } from '../types'
+
 const dateFormat = 'YYYY-MM-DD'
 const timeFormat = 'YYYY-MM-DDThh:mm:ss'
 
 const BASE_URL = 'https://outlook.live.com/calendar/deeplink/compose?path=/calendar/action/compose&rru=addevent'
 
-function generateOutlook(link: any): string {
+function generateOutlook(link: CalendarLink): string {
   // 20221020T170000Z/20221020T173000Z
 
   let url = BASE_URL
@@ -29,7 +31,7 @@ function generateOutlook(link: any): string {
   return url
 }
 
-function convertTZ(date: string, tzString: string): Date {
+function convertTZ(date: Date | string, tzString: string): Date {
   return new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', { timeZone: tzString }))
 }
 

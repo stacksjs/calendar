@@ -1,7 +1,9 @@
+import type { CalendarLink } from '../types'
+
 const dateFormat = 'YYYYMMDD'
 const timeFormat = 'YYYYMMDDThhmmss'
 
-function generateGoogle(link: any): string {
+function generateGoogle(link: CalendarLink): string {
   // 20221020T170000Z/20221020T173000Z
 
   let url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
@@ -26,7 +28,7 @@ function generateGoogle(link: any): string {
   return url
 }
 
-function convertTZ(date: string, tzString: string): Date {
+function convertTZ(date: Date | string, tzString: string): Date {
   return new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', { timeZone: tzString }))
 }
 

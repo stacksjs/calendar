@@ -1,7 +1,9 @@
+import type { CalendarLink } from '../types'
+
 const dateFormat = 'YYYYMMDD'
 const timeFormat = 'YYYYMMDDThhmmss'
 
-function generateYahoo(link: any): string {
+function generateYahoo(link: CalendarLink): string {
   let url = 'https://calendar.yahoo.com/?v=60&view=d&type=20'
 
   const utcStartDateTime = convertTZ(link.from, 'UTC') // set timezone to UTC
@@ -29,7 +31,7 @@ function generateYahoo(link: any): string {
   return url
 }
 
-function convertTZ(date: string, tzString: string): Date {
+function convertTZ(date: Date | string, tzString: string): Date {
   return new Date((typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', { timeZone: tzString }))
 }
 

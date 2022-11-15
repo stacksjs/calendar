@@ -27,3 +27,21 @@ export interface Events {
   time: Time
 }
 
+export interface WeekDates {
+  month: number
+  date: number
+}
+
+export interface TimeTableStyle {
+  time: string
+  gridRow: string
+}
+export interface CalendarLink {
+  from: Date
+  to: Date
+  allDay: Boolean
+  address: string
+  title: string
+  description: string
+  timezone: string
+}
