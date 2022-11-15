@@ -53,7 +53,7 @@
   "dependencies": {
     "@jsdevtools/ez-spawn": "^3.0.4",
     "cac": "^6.7.14",
-    "giget": "^0.1.7",
+    "giget": "^1.0.0",
     "kolorist": "^1.6.0",
     "pathe": "^0.3.9"
   },
