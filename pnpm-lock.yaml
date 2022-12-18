@@ -49,7 +49,7 @@ importers:
       events: ^3.3.0
       fast-glob: ^3.2.12
       fs-extra: ^10.1.0
-      giget: ^0.1.7
+      giget: ^1.0.0
       jiti: ^1.16.0
       js-base64: ^3.7.2
       lint-staged: ^13.0.3
@@ -111,7 +111,7 @@ importers:
       events: 3.3.0
       fast-glob: 3.2.12
       fs-extra: 10.1.0
-      giget: 0.1.7
+      giget: 1.0.0
       jiti: 1.16.0
       js-base64: 3.7.2
       lint-staged: 13.0.3
@@ -138,14 +138,14 @@ importers:
     specifiers:
       '@jsdevtools/ez-spawn': ^3.0.4
       cac: ^6.7.14
-      giget: ^0.1.7
+      giget: ^1.0.0
       kolorist: ^1.6.0
       pathe: ^0.3.9
       unbuild: ^0.9.4
     dependencies:
       '@jsdevtools/ez-spawn': 3.0.4
       cac: 6.7.14
-      giget: 0.1.7
+      giget: 1.0.0
       kolorist: 1.6.0
       pathe: 0.3.9
     devDependencies:
@@ -813,7 +813,7 @@ packages:
       npmlog: 5.0.1
       rimraf: 3.0.2
       semver: 7.3.8
-      tar: 6.1.11
+      tar: 6.1.13
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -2197,7 +2197,7 @@ packages:
   /c12/0.2.13:
     resolution: {integrity: sha512-wJL0/knDbqM/3moLb+8Xd+w3JdkggkIIhiNBkxZ1mWlskKC/vajb85wM3UPg/D9nK6RbI1NgaVTg6AeXBVbknA==}
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
       dotenv: 16.0.3
       gittar: 0.1.1
       jiti: 1.16.0
@@ -2931,6 +2931,9 @@ packages:
 
   /defu/6.1.0:
     resolution: {integrity: sha512-pOFYRTIhoKujrmbTRhcW5lYQLBXw/dlTwfI8IguF1QCDJOcJzNH1w+YFjxqy6BAuJrClTy6MUE8q+oKJ2FLsIw==}
+
+  /defu/6.1.1:
+    resolution: {integrity: sha512-aA964RUCsBt0FGoNIlA3uFgo2hO+WWC0fiC6DBps/0SFzkKcYoM/3CzVLIa5xSsrFjdioMdYgAIbwo80qp2MoA==}
 
   /delegates/1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
@@ -4490,16 +4493,19 @@ packages:
     resolution: {integrity: sha512-X8u8fREiYOE6S8hLbq99PeykTDoLVnxvF4DjWKJmz9xy2nNRdUcV8ZN9tniJFeKyTU3qnC9lL8n4Chd6LmVKHg==}
     dev: false
 
-  /giget/0.1.7:
-    resolution: {integrity: sha512-bvIVgRxfiYDTr6MWOdNjTI5o87sDUjbiFdad4P7j5yYrBJN3c3l0vaNICSrVE81X0Z6qFG0GkAoDgTrJ3K63XA==}
+  /giget/1.0.0:
+    resolution: {integrity: sha512-KWELZn3Nxq5+0So485poHrFriK9Bn3V/x9y+wgqrHkbmnGbjfLmZ685/SVA/ovW+ewoqW0gVI47pI4yW/VNobQ==}
     hasBin: true
     dependencies:
       colorette: 2.0.19
-      defu: 6.1.0
+      defu: 6.1.1
+      https-proxy-agent: 5.0.1
       mri: 1.2.0
-      node-fetch-native: 0.1.8
-      pathe: 0.3.9
-      tar: 6.1.11
+      node-fetch-native: 1.0.1
+      pathe: 1.0.0
+      tar: 6.1.13
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /git-raw-commits/2.0.11:
@@ -5368,7 +5374,7 @@ packages:
     dependencies:
       clipboardy: 3.0.0
       colorette: 2.0.19
-      defu: 6.1.0
+      defu: 6.1.1
       get-port-please: 2.6.1
       http-shutdown: 1.2.2
       ip-regex: 5.0.0
@@ -5687,6 +5693,13 @@ packages:
       yallist: 4.0.0
     dev: false
 
+  /minipass/4.0.0:
+    resolution: {integrity: sha512-g2Uuh2jEKoht+zvO6vJqXmYpflPqzRBT+Th2h01DKh5z7wbY/AZ2gCQ78cP70YoHPyFdY30YBV5WxgLOEwOykw==}
+    engines: {node: '>=8'}
+    dependencies:
+      yallist: 4.0.0
+    dev: false
+
   /minizlib/1.3.3:
     resolution: {integrity: sha512-6ZYMOEnmVsdCeTJVE0W9ZD+pVnE8h9Hma/iOwwRDsdQoePpoX56/8B6z3P9VNwppJuBKNRuFDRNRqRWexT9G9Q==}
     dependencies:
@@ -5727,7 +5740,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
       esbuild: 0.14.54
       fs-extra: 10.1.0
       globby: 11.1.0
@@ -5871,6 +5884,10 @@ packages:
 
   /node-fetch-native/0.1.8:
     resolution: {integrity: sha512-ZNaury9r0NxaT2oL65GvdGDy+5PlSaHTovT6JV5tOW07k1TQmgC0olZETa4C9KZg0+6zBr99ctTYa3Utqj9P/Q==}
+    dev: false
+
+  /node-fetch-native/1.0.1:
+    resolution: {integrity: sha512-VzW+TAk2wE4X9maiKMlT+GsPU4OMmR1U9CrHSmd3DFLn2IcZ9VJ6M6BBugGfYUnPCLSYxXdZy17M0BEJyhUTwg==}
     dev: false
 
   /node-fetch/2.6.7:
@@ -6259,6 +6276,10 @@ packages:
   /pathe/0.3.9:
     resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
 
+  /pathe/1.0.0:
+    resolution: {integrity: sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg==}
+    dev: false
+
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: false
@@ -6387,7 +6408,7 @@ packages:
   /rc9/1.2.2:
     resolution: {integrity: sha512-zbe8+HR2X28eZepAwohuKkebbEsA67h0DO9I7g12QrHa2CQopR9gztOLPIPXXGTvcxeUjAN4wZ+b29t3m/u05g==}
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
       destr: 1.2.0
       flat: 5.0.2
     dev: false
@@ -6734,7 +6755,7 @@ packages:
   /serve-placeholder/2.0.1:
     resolution: {integrity: sha512-rUzLlXk4uPFnbEaIz3SW8VISTxMuONas88nYWjAWaM2W9VDbt9tyFOr3lq8RhVOFrT3XISoBw8vni5una8qMnQ==}
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
     dev: false
 
   /serve-static/1.15.0:
@@ -7070,13 +7091,13 @@ packages:
       yallist: 3.1.1
     dev: false
 
-  /tar/6.1.11:
-    resolution: {integrity: sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA==}
-    engines: {node: '>= 10'}
+  /tar/6.1.13:
+    resolution: {integrity: sha512-jdIBIN6LTIe2jqzay/2vtYLlBHa3JF42ot3h1dW8Q0PaAG4v8rm0cvpVePtau5C6OKXGGcgO9q2AMNSWxiLqKw==}
+    engines: {node: '>=10'}
     dependencies:
       chownr: 2.0.0
       fs-minipass: 2.1.0
-      minipass: 3.3.4
+      minipass: 4.0.0
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0
@@ -7371,7 +7392,7 @@ packages:
     resolution: {integrity: sha512-1589b7oGa8ILBYpta7TndM5mLHLzHUqBfhszeZxuUBrjO/RoQ52VGVWsS3w0C0GLNxO9RPmqkf6BmIvBApaRdA==}
     dependencies:
       '@antfu/utils': 0.5.2
-      defu: 6.1.0
+      defu: 6.1.1
       jiti: 1.16.0
     dev: false
 
@@ -7392,7 +7413,7 @@ packages:
   /unenv/0.6.2:
     resolution: {integrity: sha512-IdQfYsHsGKDkiBdeOmtU4MjWvPYfMDOC63cvFqZPodAc5aVezvfD9Bwr7FL/G78cAMMCaDm5Jux3vYo+Z8c/Dg==}
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
       mime: 3.0.0
       node-fetch-native: 0.1.8
       pathe: 0.3.9
