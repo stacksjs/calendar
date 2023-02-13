@@ -54,7 +54,7 @@ importers:
       js-base64: ^3.7.2
       lint-staged: ^13.0.3
       local-pkg: ^0.4.2
-      minimatch: ^5.1.0
+      minimatch: ^6.2.0
       nitropack: ^0.6.1
       only-allow: ^1.1.1
       pathe: ^1.0.0
@@ -116,7 +116,7 @@ importers:
       js-base64: 3.7.2
       lint-staged: 13.0.3
       local-pkg: 0.4.2
-      minimatch: 5.1.0
+      minimatch: 6.2.0
       nitropack: 0.6.1
       only-allow: 1.1.1
       pathe: 1.0.0
@@ -5900,6 +5900,13 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
+
+  /minimatch/6.2.0:
+    resolution: {integrity: sha512-sauLxniAmvnhhRjFwPNnJKaPFYyddAgbYdeUpHULtCT/GhzdCx/MDNy+Y40lBxTQUrMzDE8e0S43Z5uqfO0REg==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: false
 
   /minimist-options/4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
