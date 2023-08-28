@@ -60,12 +60,14 @@ function uiEngine(isWebComponent = false) {
   return Vue()
 }
 
-const Stacks = (isWebComponent = false) => <PluginOption>[
-  inspect,
-  uiEngine(isWebComponent),
-  atomicCssEngine(isWebComponent),
-  autoImports,
-  components,
-]
+function Stacks(isWebComponent = false) {
+  return [
+    inspect,
+    uiEngine(isWebComponent),
+    atomicCssEngine(isWebComponent),
+    autoImports,
+    components,
+  ] as PluginOption
+}
 
 export { resolve, Stacks, uiEngine, autoImports, atomicCssEngine, components, inspect }

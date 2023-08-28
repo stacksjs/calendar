@@ -60,7 +60,7 @@ for (let i = 0; i < remainingDays; i++) {
   datesOfNextMonth.value.push(firstDaysOfNextMonth)
 }
 
-function isToday(date: string): Boolean {
+function isToday(date: string): boolean {
   const dt = new Date()
 
   const day = dt.getDate()
@@ -98,7 +98,7 @@ const currentWeekView = ref(todayWeek[todayWeekIndex])
 const isCurrentWeekViewToday = ref(currentWeekView.value.length === todayWeek[todayWeekIndex].length && currentWeekView.value.every((value, index) => value.date === todayWeek[todayWeekIndex][index].date))
 let indexWeek = indexOfArray(weekDates, currentWeekView.value)
 
-function isCurrentDay(date: string): Boolean {
+function isCurrentDay(date: string): boolean {
   const currentDateString = `${currentMonth}-${currentDay}-${currentYear}`
 
   return date === `${currentDateString}`

@@ -117,7 +117,7 @@ export function hasFunctions(): boolean {
   return hasFiles(resolve(process.cwd(), './functions'))
 }
 
-export const copyFiles = async (src: string, dest: string) => {
+export async function copyFiles(src: string, dest: string) {
   if (!existsSync(src))
     return
 
@@ -138,7 +138,7 @@ export const copyFiles = async (src: string, dest: string) => {
   copyFileSync(src, dest)
 }
 
-export const deleteFolder = async (path: string) => {
+export async function deleteFolder(path: string) {
   await rmSync(path, { recursive: true, force: true })
 }
 

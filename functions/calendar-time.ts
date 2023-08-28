@@ -45,7 +45,7 @@ function getStyle(event: Events): string {
   const gridSpan = Math.floor((diffMinutes / 60) * 12)
 
   if (fromMinute !== 0)
-    gridRow = parseInt(gridRow) + Math.ceil((fromMinute / 60) * 12)
+    gridRow = Number.parseInt(gridRow) + Math.ceil((fromMinute / 60) * 12)
 
   return `grid-row: ${gridRow} / span ${gridSpan}`
 }
@@ -74,7 +74,7 @@ function convertTime12to24(time12h: string): string {
     hours = '00'
 
   if (modifier === 'PM')
-    hours = parseInt(hours, 10) + 12
+    hours = Number.parseInt(hours, 10) + 12
 
   return `${hours}:${minutes}`
 }

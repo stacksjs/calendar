@@ -1,4 +1,5 @@
 const jiti = require('jiti')(__filename)
+
 const config = jiti('../config/git.ts')
 
 // eslint-disable-next-line no-console

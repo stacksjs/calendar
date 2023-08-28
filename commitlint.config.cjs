@@ -1,5 +1,6 @@
-const { readdirSync } = require('fs')
-const { resolve } = require('path')
+const { readdirSync } = require('node:fs')
+const { resolve } = require('node:path')
+
 const configPath = resolve(__dirname, './config/git.ts')
 const { paramCase } = require('change-case')
 const jiti = require('jiti')(configPath, { debug: true })
@@ -67,8 +68,8 @@ module.exports = {
     allowCustomIssuePrefixs: true,
     allowEmptyIssuePrefixs: true,
     confirmColorize: true,
-    maxHeaderLength: Infinity,
-    maxSubjectLength: Infinity,
+    maxHeaderLength: Number.POSITIVE_INFINITY,
+    maxSubjectLength: Number.POSITIVE_INFINITY,
     minSubjectLength: 0,
     scopeOverrides: undefined,
     defaultBody: '',
