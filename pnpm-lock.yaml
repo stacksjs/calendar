@@ -29,7 +29,7 @@ importers:
       '@vitejs/plugin-vue': ^3.2.0
       '@vitest/coverage-istanbul': ^0.25.2
       '@vueuse/core': ^9.5.0
-      '@vueuse/math': ^9.5.0
+      '@vueuse/math': ^10.11.1
       '@vueuse/shared': ^9.5.0
       artisan-init: workspace:*
       bcryptjs: ^2.4.3
@@ -91,7 +91,7 @@ importers:
       '@vitejs/plugin-vue': 3.2.0_vite@4.0.3+vue@3.2.45
       '@vitest/coverage-istanbul': 0.25.2
       '@vueuse/core': 9.5.0_vue@3.2.45
-      '@vueuse/math': 9.5.0_vue@3.2.45
+      '@vueuse/math': 10.11.1_vue@3.2.45
       '@vueuse/shared': 9.5.0_vue@3.2.45
       artisan-init: link:artisan
       bcryptjs: 2.4.3
@@ -2008,11 +2008,11 @@ packages:
       - vue
     dev: false
 
-  /@vueuse/math/9.5.0_vue@3.2.45:
-    resolution: {integrity: sha512-dPr5CkxE4Oo+OEvTqPfAZ8Lv1AVbnLH2N5gJSm5EWykxGPLbSaimUIckqXXR8DDyvaWIV545tELekpFUHLoFmw==}
+  /@vueuse/math/10.11.1_vue@3.2.45:
+    resolution: {integrity: sha512-fkdaNEOn22Vjz/A3vNWO2+eysunlK74ODmJRosweKMEA07oi5WH/CYQ8oGxu2Fa641fhs4hXS7XxdALsGVYlpw==}
     dependencies:
-      '@vueuse/shared': 9.5.0_vue@3.2.45
-      vue-demi: 0.13.11_vue@3.2.45
+      '@vueuse/shared': 10.11.1_vue@3.2.45
+      vue-demi: 0.14.10_vue@3.2.45
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -2020,6 +2020,15 @@ packages:
 
   /@vueuse/metadata/9.5.0:
     resolution: {integrity: sha512-4M1AyPZmIv41pym+K5+4wup3bKuYebbH8w8BROY1hmT7rIwcyS4tEL+UsGz0Hiu1FCOxcoBrwtAizc0YmBJjyQ==}
+    dev: false
+
+  /@vueuse/shared/10.11.1_vue@3.2.45:
+    resolution: {integrity: sha512-LHpC8711VFZlDaYUXEBbFBCQ7GS3dVU9mjOhhMhXP6txTV4EhYQg/KGnQuvt/sPAtoUKq7VVUnL6mVtFoL42sA==}
+    dependencies:
+      vue-demi: 0.14.10_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@vueuse/shared/9.5.0_vue@3.2.45:
@@ -8056,6 +8065,21 @@ packages:
 
   /vue-demi/0.13.11_vue@3.2.45:
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.45
+    dev: false
+
+  /vue-demi/0.14.10_vue@3.2.45:
+    resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
