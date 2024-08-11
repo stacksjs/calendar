@@ -118,7 +118,7 @@
     "@vitest/coverage-istanbul": "^0.25.2",
     "@vueuse/core": "^9.5.0",
     "@vueuse/math": "^9.5.0",
-    "@vueuse/shared": "^9.5.0",
+    "@vueuse/shared": "^10.11.1",
     "artisan-init": "workspace:*",
     "bcryptjs": "^2.4.3",
     "bumpp": "^8.2.1",
