@@ -123,7 +123,7 @@
     "bcryptjs": "^2.4.3",
     "bumpp": "^8.2.1",
     "cac": "^6.7.14",
-    "change-case": "^4.1.2",
+    "change-case": "^5.4.4",
     "collect.js": "^4.34.3",
     "commitizen": "^4.2.5",
     "consola": "^2.15.3",
