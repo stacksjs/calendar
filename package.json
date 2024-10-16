@@ -2,7 +2,7 @@
   "name": "@stacksjs/calendar",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@7.16.0",
+  "packageManager": "pnpm@7.33.7",
   "description": "Develop modern framework-agnostic web apps & libraries, faster.",
   "author": "Chris Breuer",
   "license": "MIT",
@@ -35,8 +35,8 @@
     "Chris Breuer <chris@ow3.org>"
   ],
   "engines": {
-    "node": ">=v18.12.1",
-    "pnpm": ">=7.16.0"
+    "node": ">=18.20.4",
+    "pnpm": ">=7.33.7"
   },
   "scripts": {
     "artisan": "jiti .stacks/artisan/src/index.ts",
