@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@jsdevtools/ez-spawn": "^3.0.4",
-    "cac": "^6.7.14",
+    "@stacksjs/clapp": "^0.2.0",
     "giget": "^1.0.0",
     "kolorist": "^1.6.0",
     "pathe": "^1.0.0"

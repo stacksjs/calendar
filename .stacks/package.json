@@ -122,7 +122,7 @@
     "artisan-init": "workspace:*",
     "bcryptjs": "^2.4.3",
     "bumpp": "^8.2.1",
-    "cac": "^6.7.14",
+    "@stacksjs/clapp": "^0.2.0",
     "change-case": "^4.1.2",
     "collect.js": "^4.34.3",
     "commitizen": "^4.2.5",
