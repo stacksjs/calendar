@@ -102,7 +102,7 @@
     "@iconify-json/heroicons-outline": "^1.1.4",
     "@iconify-json/heroicons-solid": "^1.1.5",
     "@jsdevtools/ez-spawn": "^3.0.4",
-    "@julr/unocss-preset-forms": "^0.0.2",
+    "@julr/unocss-preset-forms": "^2.0.0",
     "@ow3/eslint-config": "^0.33.10",
     "@rollup/pluginutils": "^5.0.2",
     "@types/bcryptjs": "^2.4.2",
