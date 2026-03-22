@@ -81,12 +81,20 @@
   "dependencies": {
     "@stacksjs/framework": "workspace:*"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
-  },
   "config": {
     "commitizen": {
       "path": ".stacks/node_modules/cz-git"
     }
+  },
+  "devDependencies": {
+    "bun-git-hooks": "^0.3.1"
+  },
+  "git-hooks": {
+    "pre-commit": {
+      "staged-lint": {
+        "*.{js,ts,json,yaml,yml,md}": "bunx --bun pickier lint --fix"
+      }
+    },
+    "commit-msg": "bunx gitlint --edit .git/COMMIT_EDITMSG"
   }
 }
