@@ -5,6 +5,17 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+
+  "[stx]": {
+    "editor.defaultFormatter": "pickier.pickier-vscode"
+  },
+  // Shell
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
