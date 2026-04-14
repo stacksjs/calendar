@@ -24,7 +24,7 @@
 # pnpm artisan deploy:functions # zero-config: Netlify, Vercel, AWS, Cloudflare (and more)
 # pnpm artisan deploy:docs # zero-config: Netlify & Vercel
 
-# pnpm artisan commit # Be a good commitizen. GUI for git commits.
+# pnpm artisan commit # Be a good commitizen. GUI for git commits
 # pnpm artisan release # GUI for releasing the libraries & triggers npm releases
 # pnpm artisan changelog # automatically generates changelog
 
