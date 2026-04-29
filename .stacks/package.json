@@ -136,7 +136,7 @@
     "giget": "^1.0.0",
     "jiti": "^1.16.0",
     "js-base64": "^3.7.2",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^16.4.0",
     "local-pkg": "^0.4.2",
     "minimatch": "^5.1.0",
     "nitropack": "^0.6.1",
