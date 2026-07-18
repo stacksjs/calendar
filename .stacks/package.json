@@ -129,7 +129,7 @@
     "detect-indent": "^7.0.1",
     "detect-newline": "^4.0.0",
     "eslint": "^8.27.0",
-    "esno": "^0.16.3",
+    "esno": "^4.8.0",
     "events": "^3.3.0",
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
