@@ -117,7 +117,7 @@
     "@vueuse/shared": "^9.5.0",
     "artisan-init": "workspace:*",
     "bcryptjs": "^2.4.3",
-    "bumpp": "^8.2.1",
+    "bumpp": "^11.1.0",
     "@stacksjs/clapp": "^0.2.0",
     "change-case": "^4.1.2",
     "collect.js": "^4.34.3",
