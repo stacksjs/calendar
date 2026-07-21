@@ -1,6 +1,6 @@
 {
   "name": "@stacksjs/calendar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Dependency-free add-to-calendar links and RFC 5545 event generation",
   "type": "module",
   "sideEffects": false,
