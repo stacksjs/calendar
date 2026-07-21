@@ -2,61 +2,28 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "useDefineForClassFields": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "noUnusedLocals": true,
-    "isolatedModules": true,
-    "strictNullChecks": true,
-    "baseUrl": ".",
-    "outDir": ".stacks/dist/types",
-    "paths": {
-      "stacks": [
-        ".stacks/core/index.ts"
-      ],
-      "stacks/*": [
-        ".stacks/*"
-      ],
-      "components/*": [
-        "./components/*"
-      ],
-      "functions/*": [
-        "./functions/*"
-      ],
-      "~/*": [
-        "./*"
-      ]
-    },
+    "moduleResolution": "bundler",
     "lib": [
       "ESNext",
       "DOM"
-    ]
+    ],
+    "types": [
+      "bun-types"
+    ],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true
   },
   "include": [
-    "./.stacks/shims.d.ts",
-    "./.stacks/**.d.ts",
-    "./.stacks/**/*",
-    "./components/**/*",
-    "./functions/**/*",
-    "./pages/**/*"
+    "build.ts",
+    "src/**/*.ts",
+    "tests/**/*.ts"
   ],
   "exclude": [
-    "./.stacks/examples/*",
-    "./.stacks/nitro.config.ts",
-    "./.stacks/vitest.config.ts",
-    "./apps/site/**",
-    "commitlint.config.cjs",
-    "**/README.md",
-    "**/dist/**",
-    "**/node_modules/**"
+    ".stacks",
+    "dist",
+    "node_modules"
   ]
 }

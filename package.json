@@ -1,11 +1,42 @@
 {
   "name": "@stacksjs/calendar",
-  "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@7.16.0",
-  "description": "Develop modern framework-agnostic web apps & libraries, faster.",
-  "author": "Chris Breuer",
-  "license": "MIT",
+  "description": "Dependency-free add-to-calendar links and RFC 5545 event generation",
+  "type": "module",
+  "sideEffects": false,
+  "packageManager": "bun@1.3.14",
+  "engines": {
+    "bun": ">=1.3.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "build": "bun --bun build.ts",
+    "prepublishOnly": "bun run build",
+    "test": "bun test",
+    "test:types": "bunx --bun tsc --noEmit",
+    "lint": "bunx --bun pickier . --config .config/pickier.ts",
+    "lint:fix": "bunx --bun pickier . --config .config/pickier.ts --fix",
+    "release:patch": "bunx --bun bumpx patch --commit --tag --push --yes"
+  },
+  "devDependencies": {
+    "better-dx": "^0.2.19"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "funding": "https://github.com/sponsors/chrisbbreuer",
   "homepage": "https://github.com/stacksjs/calendar#readme",
   "repository": {
@@ -16,84 +47,21 @@
     "url": "https://github.com/stacksjs/calendar/issues"
   },
   "keywords": [
-    "monorepo",
-    "vite",
-    "component",
-    "composables",
-    "functions",
-    "ssr",
-    "pwa",
-    "library",
-    "vue",
-    "web components",
-    "typescript",
-    "javascript",
-    "starter kit"
+    "calendar",
+    "ical",
+    "ics",
+    "google-calendar",
+    "outlook",
+    "yahoo-calendar"
   ],
-  "sideEffects": false,
-  "contributors": [
-    "Chris Breuer <chris@ow3.org>"
-  ],
-  "engines": {
-    "node": ">=v18.12.1",
-    "pnpm": ">=7.16.0"
-  },
-  "scripts": {
-    "artisan": "jiti .stacks/artisan/src/index.ts",
-    "fresh": "pnpm artisan fresh",
-    "update": "pnpm artisan update",
-    "dev:components": "pnpm artisan dev:components",
-    "dev:docs": "pnpm artisan dev:docs",
-    "build": "pnpm artisan build",
-    "build:components": "pnpm artisan build:components",
-    "build:web-components": "pnpm artisan build:web-components",
-    "build:functions": "pnpm artisan build:functions",
-    "build:docs": "pnpm artisan build:docs",
-    "lint": "pnpm artisan lint",
-    "lint:fix": "pnpm artisan lint:fix",
-    "make:component": "pnpm artisan make:component",
-    "make:function": "pnpm artisan make:function",
-    "make:lang": "pnpm artisan make:lang",
-    "make:stack": "pnpm artisan make:stack",
-    "example": "pnpm artisan example",
-    "example:vue": "pnpm artisan example:vue",
-    "example:web-components": "pnpm artisan example:web-components",
-    "commit": "pnpm artisan commit",
-    "release": "pnpm artisan release",
-    "build:stacks": "pnpm artisan build:stacks",
-    "dev:pages": "pnpm artisan dev:pages",
-    "server:functions": "pnpm artisan server:functions",
-    "server:pages": "pnpm artisan server:pages",
-    "changelog": "pnpm artisan changelog",
-    "deploy:functions": "pnpm artisan deploy:functions",
-    "deploy:docs": "pnpm artisan deploy:docs",
-    "test": "pnpm artisan test",
-    "test:coverage": "pnpm artisan test:coverage",
-    "test:types": "pnpm artisan test:types",
-    "types:fix": "pnpm artisan types:fix",
-    "generate:types": "pnpm artisan generate:types",
-    "generate:entries": "pnpm artisan generate:entries",
-    "generate:vue-compat": "pnpm artisan generate:vue-compat",
-    "key:generate": "pnpm artisan key:generate",
-    "a": "pnpm artisan",
-    "art": "pnpm artisan"
-  },
-  "dependencies": {
-    "@stacksjs/framework": "workspace:*"
-  },
-  "config": {
-    "commitizen": {
-      "path": ".stacks/node_modules/cz-git"
-    }
-  },
-  "devDependencies": {
-    "bun-git-hooks": "^0.3.1"
-  },
+  "author": "Chris Breuer <chris@stacksjs.org>",
+  "license": "MIT",
   "git-hooks": {
     "pre-commit": {
       "staged-lint": {
-        "*.{js,ts,json,yaml,yml,md}": "bunx --bun pickier lint --fix"
-      }
+        "*.{js,ts,json,yaml,yml,md}": "bunx --bun pickier --fix"
+      },
+      "autoRestage": true
     },
     "commit-msg": "bunx gitlint --edit .git/COMMIT_EDITMSG"
   }
