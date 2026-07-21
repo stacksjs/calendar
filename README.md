@@ -1,5 +1,15 @@
 # @stacksjs/calendar
 
+## Add to a Stacks project
+
+The registry version installs project-shaped source files directly into your application:
+
+```bash
+buddy add calendar
+```
+
+This adds `resources/components/CalendarLinks.stx` and the calendar functions under `resources/functions/calendar/`. The stack contains STX and TypeScript source, so the installed files remain fully owned and editable by the application.
+
 Dependency-free add-to-calendar links and RFC 5545 event generation for Google Calendar, Outlook, Office 365, Yahoo Calendar, Apple Calendar, and any application that imports ICS files.
 
 ## Install

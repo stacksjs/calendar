@@ -9,7 +9,7 @@ import {
   office365CalendarUrl,
   outlookCalendarUrl,
   yahooCalendarUrl,
-} from '../src'
+} from '../resources/functions/calendar'
 
 const timedEvent = {
   title: 'Stacks Launch',

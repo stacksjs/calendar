@@ -18,11 +18,10 @@
   },
   "include": [
     "build.ts",
-    "src/**/*.ts",
+    "resources/functions/**/*.ts",
     "tests/**/*.ts"
   ],
   "exclude": [
-    ".stacks",
     "dist",
     "node_modules"
   ]

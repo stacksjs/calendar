@@ -18,9 +18,17 @@
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
+    "resources",
     "README.md",
     "LICENSE.md"
   ],
+  "stacks": {
+    "name": "calendar",
+    "description": "Calendar links, ICS generation, and an STX add-to-calendar component",
+    "directories": [
+      "resources"
+    ]
+  },
   "scripts": {
     "build": "bun --bun build.ts",
     "prepublishOnly": "bun run build",

@@ -1,0 +1,50 @@
+<script server>
+import { createCalendarLinks } from '../functions/calendar'
+
+interface CalendarLinksProps {
+  title: string
+  start: Date | string
+  end?: Date | string
+  durationMinutes?: number
+  allDay?: boolean
+  description?: string
+  location?: string
+  timezone?: string
+  url?: string
+  label?: string
+}
+
+const {
+  title,
+  start,
+  end,
+  durationMinutes,
+  allDay = false,
+  description = '',
+  location = '',
+  timezone = '',
+  url = '',
+  label = 'Add to calendar',
+} = defineProps<CalendarLinksProps>()
+
+const links = createCalendarLinks({
+  title,
+  start,
+  end,
+  durationMinutes,
+  allDay,
+  description,
+  location,
+  timezone,
+  url,
+})
+</script>
+
+<div class="inline-flex flex-wrap items-center gap-2" aria-label="{{ label }}">
+  <span class="font-medium text-sm text-slate-700">{{ label }}</span>
+  <a class="px-3 py-2 text-sm text-slate-700 border border-slate-300 rounded-lg hover:border-slate-500 transition-colors" href="{{ links.google }}" target="_blank" rel="noreferrer">Google</a>
+  <a class="px-3 py-2 text-sm text-slate-700 border border-slate-300 rounded-lg hover:border-slate-500 transition-colors" href="{{ links.outlook }}" target="_blank" rel="noreferrer">Outlook</a>
+  <a class="px-3 py-2 text-sm text-slate-700 border border-slate-300 rounded-lg hover:border-slate-500 transition-colors" href="{{ links.office365 }}" target="_blank" rel="noreferrer">Microsoft 365</a>
+  <a class="px-3 py-2 text-sm text-slate-700 border border-slate-300 rounded-lg hover:border-slate-500 transition-colors" href="{{ links.yahoo }}" target="_blank" rel="noreferrer">Yahoo</a>
+  <a class="px-3 py-2 font-medium text-sm text-white bg-slate-900 rounded-lg hover:bg-slate-700 transition-colors" href="{{ links.icsDataUrl }}" download="event.ics">Download ICS</a>
+</div>
