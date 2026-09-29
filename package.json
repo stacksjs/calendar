@@ -36,7 +36,7 @@
     "test:types": "bunx --bun tsc --noEmit",
     "lint": "bunx --bun pickier . --config .config/pickier.ts",
     "lint:fix": "bunx --bun pickier . --config .config/pickier.ts --fix",
-    "release:patch": "bunx --bun bumpx patch --commit --tag --push --yes"
+    "release:patch": "bunx --bun @stacksjs/bumpx patch --commit --tag --push --yes"
   },
   "devDependencies": {
     "better-dx": "^0.2.19"
